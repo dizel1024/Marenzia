@@ -52,17 +52,72 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div className="space-y-6">
-                        <h6 className="text-white text-[10px] uppercase tracking-[0.3em] font-bold">ז&apos;ורנל</h6>
-                        <div className="flex border-b border-slate-700 pb-2">
-                            <input
-                                type="email"
-                                placeholder="הירשם לניוזלטר"
-                                className="bg-transparent border-none p-0 text-sm focus:ring-0 placeholder-slate-600 w-full text-right"
-                                suppressHydrationWarning
-                            />
-                            <ArrowLeft className="w-4 h-4 text-slate-600 hover:text-white transition-colors cursor-pointer" />
-                        </div>
+                    <div className="space-y-6 md:col-span-1">
+                        <h6 className="text-white text-[10px] uppercase tracking-[0.3em] font-bold mb-4">צרו קשר</h6>
+                        {(() => {
+                            const [submitted, setSubmitted] = React.useState(false);
+                            const [formData, setFormData] = React.useState({ name: '', phone: '', email: '', message: '' });
+
+                            const handleSubmit = (e: React.FormEvent) => {
+                                e.preventDefault();
+                                setSubmitted(true);
+                                setTimeout(() => setSubmitted(false), 5000);
+                            };
+
+                            if (submitted) {
+                                return (
+                                    <div className="h-full flex flex-col justify-center animate-pulse">
+                                        <p className="text-[#149cb8] text-[10px] uppercase tracking-[0.2em] font-bold">הודעתך נשלחה בהצלחה.</p>
+                                        <p className="text-slate-500 text-[9px] mt-2 italic uppercase">נציגנו יצרו איתך קשר בהקדם.</p>
+                                    </div>
+                                );
+                            }
+
+                            return (
+                                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                                    <input
+                                        type="text"
+                                        placeholder="שם מלא"
+                                        required
+                                        className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700 w-full"
+                                        value={formData.name}
+                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    />
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <input
+                                            type="tel"
+                                            placeholder="טלפון"
+                                            required
+                                            className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700"
+                                            value={formData.phone}
+                                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                        />
+                                        <input
+                                            type="email"
+                                            placeholder="אימייל"
+                                            required
+                                            className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700"
+                                            value={formData.email}
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                        />
+                                    </div>
+                                    <textarea
+                                        placeholder="הודעה"
+                                        rows={2}
+                                        required
+                                        className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700 resize-none"
+                                        value={formData.message}
+                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                    ></textarea>
+                                    <button
+                                        type="submit"
+                                        className="mt-2 text-[10px] uppercase tracking-[0.3em] font-bold text-white border border-white/20 py-3 hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
+                                    >
+                                        שלח הודעה <ArrowLeft className="w-3 h-3" />
+                                    </button>
+                                </form>
+                            );
+                        })()}
                     </div>
                 </div>
 
