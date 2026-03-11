@@ -231,6 +231,149 @@ const stones = [
         porosity: 'נמוכה (0.3%)',
         origin: 'ספרד',
         image: '/assets/images/stone_crema_marfil_color.png'
+    },
+    {
+        name: 'ארבסקטו גריג׳יו אורוביקו',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'אפור',
+        code: 'AGO-16',
+        toneDetails: 'אפור כהה עם גידים מוזהבים',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'ברגמו, איטליה',
+        image: '/assets/images/stone_grigio_orobico_color.png'
+    },
+    {
+        name: 'ארבסקטו רוסו אורוביקו',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'אדום',
+        code: 'ARO-17',
+        toneDetails: 'אדום עמוק עם ערבולי אפור ולבן',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'ברגמו, איטליה',
+        image: '/assets/images/stone_rosso_orobico_color.png'
+    },
+    {
+        name: 'רוסו פרנציה',
+        type: 'שיש • צרפת',
+        category: 'שיש',
+        tone: 'אדום',
+        code: 'RF-18',
+        toneDetails: 'אדום עז עם הכללות לבנות',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'צרפת',
+        image: '/assets/images/stone_rosso_francia_color.png'
+    },
+    {
+        name: 'ורדה לפוניה',
+        type: 'שיש • ברזיל',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'VL-19',
+        toneDetails: 'ירוק אצילי עם זרימה אמנותית',
+        porosity: 'נמוכה (0.15%)',
+        origin: 'ברזיל',
+        image: '/assets/images/stone_verde_lapponia_color.png'
+    },
+    {
+        name: 'נרו פורטורו',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'זהב',
+        code: 'NP-20',
+        toneDetails: 'שחור עמוק עם גידי זהב עזים',
+        porosity: 'נמוכה (0.1%)',
+        origin: 'לה ספציה, איטליה',
+        image: '/assets/images/stone_nero_portoro_color.png'
+    },
+    {
+        name: 'שיש ארבע העונות',
+        type: 'שיש • צרפת',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'FS-21',
+        toneDetails: 'שילוב אמנותי של ירוק, סגול וזהב',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'פירנאים, צרפת',
+        image: '/assets/images/stone_four_seasons_color.png'
+    },
+    {
+        name: 'פורט לורן',
+        type: 'שיש • מרוקו',
+        category: 'שיש',
+        tone: 'שחור',
+        code: 'PL-22',
+        toneDetails: 'שחור-חום עם גידי זהב ולבן',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'מרוקו',
+        image: '/assets/images/stone_port_laurent_color.png'
+    },
+    {
+        name: 'מיסטי ווייט',
+        type: 'שיש • נאמיביה',
+        category: 'שיש',
+        tone: 'לבן',
+        code: 'MW-23',
+        toneDetails: 'לבן טהור עם עננות עדינה',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'נאמיביה',
+        image: '/assets/images/stone_misty_white_color.png'
+    },
+    {
+        name: 'בלו גלקסי',
+        type: 'שיש • סין',
+        category: 'שיש',
+        tone: 'כחול',
+        code: 'BG-24',
+        toneDetails: 'כחול כהה עם גבישים נוצצים',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'סין',
+        image: '/assets/images/stone_blue_galaxy_color.png'
+    },
+    {
+        name: 'סילבר וייב',
+        type: 'שיש • סין',
+        category: 'שיש',
+        tone: 'אפור',
+        code: 'SW-25',
+        toneDetails: 'גלים דרמטיים של אפור ושחור',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'סין',
+        image: '/assets/images/stone_silver_wave_color.png'
+    },
+    {
+        name: 'אוניקס ג׳ייד לבן',
+        type: 'אוניקס • סין',
+        category: 'אוניקס',
+        tone: 'לבן',
+        code: 'WJO-26',
+        toneDetails: 'לבן קרמי שקוף',
+        porosity: 'נמוכה מאוד (0.05%)',
+        origin: 'סין',
+        image: '/assets/images/stone_white_jade_onyx_color.png'
+    },
+    {
+        name: 'אוניקס בלו סקיי',
+        type: 'אוניקס • ארגנטינה',
+        category: 'אוניקס',
+        tone: 'כחול',
+        code: 'BSO-27',
+        toneDetails: 'תכלת שמיים שקוף',
+        porosity: 'נמוכה מאוד (0.05%)',
+        origin: 'ארגנטינה',
+        image: '/assets/images/stone_blue_sky_onyx_color.png'
+    },
+    {
+        name: 'אוניקס דבש',
+        type: 'אוניקס • טורקיה',
+        category: 'אוניקס',
+        tone: 'זהב',
+        code: 'HO-28',
+        toneDetails: 'זהב עמוק ושקוף',
+        porosity: 'נמוכה מאוד (0.05%)',
+        origin: 'טורקיה',
+        image: '/assets/images/stone_honey_onyx_color.png'
     }
 ];
 
