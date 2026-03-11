@@ -199,7 +199,7 @@ export default function StoneArchivePage() {
     return (
         <div className="min-h-screen bg-[#f7f7f7] text-[#0a0a0a] font-sans rtl pt-20" dir="rtl">
             {/* Archive Navbar */}
-            <header className="fixed top-20 w-full z-40 bg-white/80 backdrop-blur-md border-b border-black/5 px-8 py-4 flex items-center justify-between [transform:translateZ(0)]">
+            <header className="fixed top-[88px] w-full z-40 bg-white/80 backdrop-blur-md border-b border-black/5 px-8 py-4 flex items-center justify-between [transform:translateZ(0)]">
                 <div className="flex items-center gap-12">
                     <div className="flex items-center gap-2 text-black">
                         <LayoutGrid className="w-5 h-5" />

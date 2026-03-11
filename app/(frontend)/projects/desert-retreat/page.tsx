@@ -4,37 +4,14 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Menu, Square, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function ProjectDetailPage() {
   return (
     <div className="min-h-screen bg-[#f7f7f7] text-right" dir="rtl">
-      <header className="fixed top-0 w-full z-50 bg-[#f7f7f7]/80 backdrop-blur-md border-b border-black/5 px-6 lg:px-20 py-6">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Square className="text-black w-6 h-6" />
-            <h1 className="text-black text-xl font-bold tracking-[0.2em] uppercase">Marenzia</h1>
-          </div>
-          
-          <nav className="hidden md:flex items-center gap-12">
-            <Link href="/collections" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">קולקציות</Link>
-            <Link href="/stone" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">אבן</Link>
-            <Link href="/bath" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">אמבט</Link>
-            <Link href="/projects" className="text-[11px] uppercase tracking-[0.2em] font-bold transition-opacity">פרויקטים</Link>
-            <Link href="/contact" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">צור קשר</Link>
-            <Link href="/" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">פילוסופיה</Link>
-          </nav>
 
-          <div className="flex items-center gap-6">
-            <Link href="/contact" className="hidden lg:block bg-black text-white text-[11px] tracking-[0.2em] uppercase py-3 px-6 hover:bg-black/90 transition-all">
-              תיאום ייעוץ
-            </Link>
-            <Menu className="w-5 h-5 cursor-pointer md:hidden" />
-          </div>
-        </div>
-      </header>
 
-      <main className="pt-24">
+      <main className="pt-32">
         <section className="relative h-[80vh] w-full overflow-hidden bg-black">
           <div className="absolute inset-0 bg-cover bg-center grayscale brightness-75 transition-transform duration-1000 scale-105" style={{ backgroundImage: "url('/assets/images/img_6ffab66ff533.webp')" }}></div>
           <div className="relative z-10 flex h-full items-center justify-center">
