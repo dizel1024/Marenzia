@@ -19,28 +19,28 @@ const collections = [
     slug: 'monolith',
     title: 'סדרת המונולית',
     category: 'אבן אדריכלית / בזלת כהה',
-    image: '/assets/images/img_4e9fc4a0ac29.webp'
+    image: '/assets/images/collection_monolith_color.png'
   },
   {
     id: 2,
     slug: 'ethereal',
     title: 'אגן אתרי',
     category: 'כלים סניטריים / אבולוציית קרארה',
-    image: '/assets/images/img_90bcd2935e2e.webp'
+    image: '/assets/images/collection_ethereal_color.png'
   },
   {
     id: 3,
     slug: 'obsidian',
     title: 'טקסטורות אובסידיאן',
     category: 'ריהוט / זכוכית וולקנית',
-    image: '/assets/images/img_106de601b121.webp'
+    image: '/assets/images/collection_obsidian_color.png'
   },
   {
     id: 4,
     slug: 'travertine',
     title: 'מהות הטרברטין',
     category: 'משטחים אנכיים / גידים גולמיים',
-    image: '/assets/images/img_fc6e729c5caa.webp'
+    image: '/assets/images/collection_travertine_color.png'
   }
 ];
 
@@ -79,7 +79,7 @@ export default function CollectionsPage() {
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover grayscale transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover grayscale transition-all duration-[1.5s] ease-in-out group-hover:grayscale-0 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
                   </div>
