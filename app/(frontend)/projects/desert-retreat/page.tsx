@@ -18,7 +18,7 @@ export default function ProjectDetailPage() {
           
           <nav className="hidden md:flex items-center gap-12">
             <Link href="/collections" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">קולקציות</Link>
-            <a href="#" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">אבן</a>
+            <Link href="/stone" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">אבן</Link>
             <Link href="/bath" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">אמבט</Link>
             <Link href="/projects" className="text-[11px] uppercase tracking-[0.2em] font-bold transition-opacity">פרויקטים</Link>
             <Link href="/contact" className="text-[11px] uppercase tracking-[0.2em] font-medium hover:opacity-50 transition-opacity">צור קשר</Link>
@@ -87,7 +87,7 @@ export default function ProjectDetailPage() {
                   </div>
                   <span className="text-[10px] uppercase tracking-[0.3em] text-black/40">מוצר מס&apos; 01</span>
                   <h3 className="font-serif text-2xl mt-2 mb-6">Monolith Vessel</h3>
-                  <Link className="flex items-center justify-end gap-2 text-[10px] font-bold uppercase tracking-widest border-b border-black/20 pb-1 w-fit group-hover:border-black transition-all" href="#">
+                  <Link className="flex items-center justify-end gap-2 text-[10px] font-bold uppercase tracking-widest border-b border-black/20 pb-1 w-fit group-hover:border-black transition-all" href="/bath/product-1">
                     צפה בקולקציה <ArrowLeft className="w-4 h-4" />
                   </Link>
                 </div>
@@ -102,7 +102,7 @@ export default function ProjectDetailPage() {
                   </div>
                   <span className="text-[10px] uppercase tracking-[0.3em] text-black/40">מוצר מס&apos; 04</span>
                   <h3 className="font-serif text-2xl mt-2 mb-6">Infinite Basin</h3>
-                  <Link className="flex items-center justify-end gap-2 text-[10px] font-bold uppercase tracking-widest border-b border-black/20 pb-1 w-fit group-hover:border-black transition-all" href="#">
+                  <Link className="flex items-center justify-end gap-2 text-[10px] font-bold uppercase tracking-widest border-b border-black/20 pb-1 w-fit group-hover:border-black transition-all" href="/bath/product-2">
                     צפה בקולקציה <ArrowLeft className="w-4 h-4" />
                   </Link>
                 </div>
@@ -116,14 +116,14 @@ export default function ProjectDetailPage() {
               <Image alt="Penthouse view" width={1800} height={800} className="h-full w-full object-cover grayscale opacity-90 transition-all duration-1000 group-hover:scale-110" src="/assets/images/img_a4d4fb32a3e9.webp"/>
             </div>
 
-            <section className="bg-black text-white py-32 overflow-hidden relative group cursor-pointer">
-              <div className="absolute inset-0 opacity-20 grayscale transition-transform duration-1000 group-hover:scale-105" style={{ backgroundImage: "url('/assets/images/img_13e3f89e94f3.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+            <Link href="/projects/highline-residence" className="bg-black text-white py-32 overflow-hidden relative group cursor-pointer block">
+              <div className="absolute inset-0 opacity-20 grayscale transition-transform duration-1000 group-hover:scale-105" style={{ backgroundImage: "url('/assets/images/img_a4d4fb32a3e9.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <div className="mx-auto max-w-[1440px] px-8 relative z-10 flex flex-col items-center">
                 <span className="text-[10px] uppercase tracking-[0.4em] mb-8 text-white/50">הפרויקט הבא</span>
-                <h2 className="font-serif text-5xl md:text-8xl italic text-center transition-transform duration-500 group-hover:-translate-y-2">Azure Coastal Villa</h2>
+                <h2 className="font-serif text-5xl md:text-8xl italic text-center transition-transform duration-500 group-hover:-translate-y-2">Highline Residence</h2>
                 <div className="mt-12 h-px w-24 bg-white/30 group-hover:w-48 transition-all duration-700"></div>
               </div>
-            </section>
+            </Link>
           </div>
         </section>
       </main>
