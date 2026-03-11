@@ -440,6 +440,28 @@ const stones = [
         porosity: 'נמוכה מאוד (0.1%)',
         origin: 'ברזיל',
         image: '/assets/images/stone_pandora_color.png'
+    },
+    {
+        name: 'אופרה ד׳ארטה',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'ODA-35',
+        toneDetails: 'קלידוסקופ דרמטי של ירוק, סגול ולבן',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'איטליה',
+        image: '/assets/images/stone_opera_d_arte_color.png'
+    },
+    {
+        name: 'שאנגרי-לה',
+        type: 'שיש • ברזיל',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'SHL-36',
+        toneDetails: 'ירוק אקזוטי ג׳ונגל עם גידי זהב ולבן',
+        porosity: 'נמוכה (0.15%)',
+        origin: 'ברזיל',
+        image: '/assets/images/stone_shangri_la_color.png'
     }
 ];
 
