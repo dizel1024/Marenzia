@@ -465,7 +465,7 @@ const stones = [
     }
 ];
 
-const categories = ['כל האבנים', 'שיש', 'טרוורטין', 'קוורציט', 'אבן גיר', 'בזלת', 'אוניקס'];
+const categories = ['כל האבנים', 'שיש', 'טרוורטין', 'קוורציט', 'אוניקס'];
 const tones = [
     { id: 'לבן', color: '#FFFFFF' },
     { id: 'בז׳', color: '#F5F5DC' },
