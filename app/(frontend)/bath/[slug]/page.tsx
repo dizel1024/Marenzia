@@ -232,21 +232,25 @@ export default function BathProductDetails({ params }: { params: Promise<{ slug:
                         <Link className="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white pb-2 hover:opacity-60 transition-opacity" href="/projects">צפה בכל הפרויקטים</Link>
                     </div>
                     <div className="flex flex-col gap-32">
-                        {[
+                        { [
                             { title: 'Nouveau Penthouse', location: 'New York, NY', image: '/assets/images/img_38ac2d605600.webp' },
                             { title: 'Azure Coastal Villa', location: 'Malibu, CA', image: '/assets/images/img_13e3f89e94f3.webp' },
                             { title: 'The Monolith Hotel', location: 'Milan, IT', image: '/assets/images/img_c4c407d8b8f7.webp' },
                         ].map((project, i) => (
-                            <div key={i} className={`grid grid-cols-1 lg:grid-cols-12 gap-0 items-center ${i % 2 === 0 ? '' : 'text-right'}`}>
+                            <Link 
+                                key={i} 
+                                href={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                                className={`grid grid-cols-1 lg:grid-cols-12 gap-0 items-center group cursor-pointer ${i % 2 === 0 ? '' : 'text-right'}`}
+                            >
                                 <div className={`lg:col-span-8 aspect-[16/10] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 ${i % 2 === 0 ? '' : 'lg:order-2'}`}>
                                     <Image alt={project.title} width={1200} height={800} className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms]" src={project.image} />
                                 </div>
                                 <div className={`lg:col-span-4 px-12 py-12 lg:py-0 ${i % 2 === 0 ? '' : 'lg:order-1'}`}>
                                     <span className="text-[10px] font-bold tracking-[0.5em] text-slate-500 uppercase block mb-4">פרויקט 0{i + 1}</span>
-                                    <h3 className="text-3xl font-serif italic mb-6">{project.title}</h3>
+                                    <h3 className="text-3xl font-serif italic mb-6 group-hover:text-white/70 transition-colors">{project.title}</h3>
                                     <p className="text-slate-400 text-sm leading-relaxed tracking-wide">{project.location}</p>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </section>

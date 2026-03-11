@@ -185,7 +185,7 @@ export default function Home() {
         <div className="flex gap-12 overflow-x-auto no-scrollbar px-6 lg:px-20 pb-20 snap-x snap-mandatory">
 
           {/* Collection 01 */}
-          <div className="min-w-[90vw] lg:min-w-[1200px] bg-black border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden snap-center group">
+          <Link href="/collections" className="min-w-[90vw] lg:min-w-[1200px] bg-black border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden snap-center group cursor-pointer" suppressHydrationWarning>
             <div className="lg:col-span-7 h-[450px] lg:h-[700px] relative overflow-hidden">
               <Image
                 src="/assets/images/home_collection_carrara.png"
@@ -194,10 +194,10 @@ export default function Home() {
                 className="w-full h-full object-cover grayscale transition-all duration-[2s] group-hover:scale-110 group-hover:grayscale-0"
               />
             </div>
-            <div className="lg:col-span-5 p-16 lg:p-24 flex flex-col justify-center space-y-10">
-              <div className="flex items-center gap-6">
-                <span className="text-xs font-light text-white/30 tracking-[0.4em]">קולקציה 01</span>
+            <div className="lg:col-span-5 p-16 lg:p-24 flex flex-col justify-center space-y-10 text-right" dir="rtl">
+              <div className="flex items-center justify-end gap-6">
                 <div className="w-16 h-px bg-white/10"></div>
+                <span className="text-xs font-light text-white/30 tracking-[0.4em]">קולקציה 01</span>
               </div>
               <h5 className="text-5xl font-serif italic tracking-tight">סדרת קרארה</h5>
               <p className="text-xl text-white/50 font-light leading-relaxed">
@@ -205,16 +205,16 @@ export default function Home() {
               </p>
               <div className="pt-12 flex items-center justify-between border-t border-white/5">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-white/30">טוהר בחומר</p>
-                <Link href="/collections" className="flex items-center gap-3 text-[10px] uppercase tracking-widest hover:text-white/60 transition-colors group/btn" suppressHydrationWarning>
+                <div className="flex items-center gap-3 text-[10px] uppercase tracking-widest group-hover:text-white/60 transition-colors">
                   צפה בפרטים
-                  <motion.span whileHover={{ x: 3, y: -3 }} className="material-symbols-outlined text-sm">north_east</motion.span>
-                </Link>
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* Collection 02 */}
-          <div className="min-w-[90vw] lg:min-w-[1200px] bg-black border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden snap-center group">
+          <Link href="/collections" className="min-w-[90vw] lg:min-w-[1200px] bg-black border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden snap-center group cursor-pointer" suppressHydrationWarning>
             <div className="lg:col-span-7 h-[450px] lg:h-[700px] relative overflow-hidden">
               <Image
                 src="/assets/images/home_collection_obsidian.png"
@@ -223,10 +223,10 @@ export default function Home() {
                 className="w-full h-full object-cover grayscale transition-all duration-[2s] group-hover:scale-110 group-hover:grayscale-0"
               />
             </div>
-            <div className="lg:col-span-5 p-16 lg:p-24 flex flex-col justify-center space-y-10">
-              <div className="flex items-center gap-6">
-                <span className="text-xs font-light text-white/30 tracking-[0.4em]">קולקציה 02</span>
+            <div className="lg:col-span-5 p-16 lg:p-24 flex flex-col justify-center space-y-10 text-right" dir="rtl">
+              <div className="flex items-center justify-end gap-6">
                 <div className="w-16 h-px bg-white/10"></div>
+                <span className="text-xs font-light text-white/30 tracking-[0.4em]">קולקציה 02</span>
               </div>
               <h5 className="text-5xl font-serif italic tracking-tight">מונו אובסידיאן</h5>
               <p className="text-xl text-white/50 font-light leading-relaxed">
@@ -234,13 +234,13 @@ export default function Home() {
               </p>
               <div className="pt-12 flex items-center justify-between border-t border-white/5">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-white/30">קולקציית 2024</p>
-                <Link href="/collections" className="flex items-center gap-3 text-[10px] uppercase tracking-widest hover:text-white/60 transition-colors group/btn">
+                <div className="flex items-center gap-3 text-[10px] uppercase tracking-widest group-hover:text-white/60 transition-colors">
                   צפה בפרטים
-                  <span className="material-symbols-outlined text-sm">north_east</span>
-                </Link>
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
 
         </div>
 
