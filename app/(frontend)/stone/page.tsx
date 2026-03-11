@@ -374,6 +374,72 @@ const stones = [
         porosity: 'נמוכה מאוד (0.05%)',
         origin: 'טורקיה',
         image: '/assets/images/stone_honey_onyx_color.png'
+    },
+    {
+        name: 'רוסו לואנה',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'אדום',
+        code: 'RLU-29',
+        toneDetails: 'קלידוסקופ של סגול, ירוק ואדום',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'איטליה',
+        image: '/assets/images/stone_rosso_luana_color.png'
+    },
+    {
+        name: 'פליסנדרו',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'כחול',
+        code: 'PAL-30',
+        toneDetails: 'תכלת-אפור עם גידים ליניאריים',
+        porosity: 'נמוכה (0.25%)',
+        origin: 'איטליה',
+        image: '/assets/images/stone_palissandro_color.png'
+    },
+    {
+        name: 'ורדה מאסטרו',
+        type: 'שיש • ברזיל',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'VM-31',
+        toneDetails: 'ירוק יער עמוק ומלכותי',
+        porosity: 'נמוכה (0.15%)',
+        origin: 'ברזיל',
+        image: '/assets/images/stone_verde_maestro_color.png'
+    },
+    {
+        name: 'פטגוניה',
+        type: 'קוורציט • ברזיל',
+        category: 'קוורציט',
+        tone: 'בז׳',
+        code: 'PAT-32',
+        toneDetails: 'גבישים שקופים עם הכללות דרמטיות',
+        porosity: 'נמוכה מאוד (0.1%)',
+        origin: 'ברזיל',
+        image: '/assets/images/stone_patagonia_color.png'
+    },
+    {
+        name: 'מינג גרין',
+        type: 'שיש • סין',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'MG-33',
+        toneDetails: 'ירוק מנטה עדין ונקי',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'סין',
+        image: '/assets/images/stone_ming_green_color.png'
+    },
+    {
+        name: 'פנדורה',
+        type: 'קוורציט • ברזיל',
+        category: 'קוורציט',
+        tone: 'בז׳',
+        code: 'PAN-34',
+        toneDetails: 'מבנה גבישי רחב בגווני קרם ופחם',
+        porosity: 'נמוכה מאוד (0.1%)',
+        origin: 'ברזיל',
+        image: '/assets/images/stone_pandora_color.png'
     }
 ];
 
