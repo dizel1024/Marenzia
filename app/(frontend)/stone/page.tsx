@@ -13,6 +13,17 @@ import { motion } from 'motion/react';
 
 const stones = [
     {
+        name: 'ביאנקו קרארה',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'לבן',
+        code: 'BC-01',
+        toneDetails: 'לבן קלאסי עם גידים אפורים',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'קרארה, איטליה',
+        image: '/assets/images/stone_bianco_carrara_color.png'
+    },
+    {
         name: 'קרארה סטטואריו',
         type: 'שיש • איטליה',
         category: 'שיש',
@@ -24,125 +35,37 @@ const stones = [
         image: '/assets/images/stone_carrara_statuario_color.png'
     },
     {
-        name: 'פיאטרה די פוסנה',
-        type: 'אבן גיר • צרפת',
-        category: 'אבן גיר',
-        tone: 'אפור',
-        code: 'Fos-04',
-        toneDetails: 'פחם חם',
-        porosity: 'נמוכה (0.2%)',
-        origin: 'מונפלייה, צרפת',
-        image: '/assets/images/img_8371c2031331.webp'
-    },
-    {
-        name: 'טרוורטין כסוף',
-        type: 'טרוורטין • טורקיה',
-        category: 'טרוורטין',
-        tone: 'כסוף',
-        code: 'Trv-12',
-        toneDetails: 'כסף קריר',
-        porosity: 'בינונית (1.8%)',
-        origin: 'דניזלי, טורקיה',
-        image: '/assets/images/stone_silver_travertine_color.png'
-    },
-    {
-        name: 'בזלטינה סקורו',
-        type: 'בזלת • איטליה',
-        category: 'בזלת',
-        tone: 'שחור',
-        code: 'Bas-09',
-        toneDetails: 'פחם עמוק',
-        porosity: 'נמוכה מאוד (0.1%)',
-        origin: 'ויטרבו, איטליה',
-        image: '/assets/images/img_12acfce4b7df.webp'
-    },
-    {
-        name: 'ורדה אלפי',
-        type: 'שיש • איטליה',
-        category: 'שיש',
-        tone: 'ירוק',
-        code: 'Ver-01',
-        toneDetails: 'ירוק יער עמוק',
-        porosity: 'נמוכה (0.2%)',
-        origin: 'פיימונטה, איטליה',
-        image: '/assets/images/stone_verde_alpi_color.png'
-    },
-    {
-        name: "רוסו ורונה",
-        type: 'שיש • איטליה',
-        category: 'שיש',
-        tone: 'אדום',
-        code: 'Ros-02',
-        toneDetails: 'אדום אדמה',
-        porosity: 'נמוכה (0.4%)',
-        origin: 'ורונה, איטליה',
-        image: '/assets/images/stone_rosso_verona_color.png'
-    },
-    {
-        name: "ג'יאלו סיינה",
+        name: 'קלקטה אורו',
         type: 'שיש • איטליה',
         category: 'שיש',
         tone: 'זהב',
-        code: 'Gia-03',
-        toneDetails: 'זהב עמוק',
-        porosity: 'נמוכה (0.3%)',
-        origin: 'סיינה, איטליה',
-        image: '/assets/images/stone_giallo_siena_color.png'
-    },
-    {
-        name: 'אזול בהייה',
-        type: 'קוורציט • ברזיל',
-        category: 'קוורציט',
-        tone: 'כחול',
-        code: 'Azu-04',
-        toneDetails: 'כחול אקזוטי',
-        porosity: 'נמוכה מאוד (0.1%)',
-        origin: 'בהייה, ברזיל',
-        image: '/assets/images/stone_azul_bahia_color.png'
-    },
-    {
-        name: 'נרו מרקווינה',
-        type: 'שיש • ספרד',
-        category: 'שיש',
-        tone: 'שחור',
-        code: 'Mar-05',
-        toneDetails: 'שחור פחם',
-        porosity: 'נמוכה (0.2%)',
-        origin: 'חבל הבאסקים, ספרד',
-        image: '/assets/images/stone_nero_marquina_color.png'
-    },
-    {
-        name: 'קלקטה ויולה',
-        type: 'שיש • איטליה',
-        category: 'שיש',
-        tone: 'סגול',
-        code: 'Vio-06',
-        toneDetails: 'לבן עם ורידי סגול',
+        code: 'CO-02',
+        toneDetails: 'לבן חם עם גידים מוזהבים',
         porosity: 'נמוכה (0.2%)',
         origin: 'קרארה, איטליה',
-        image: '/assets/images/stone_calacatta_viola_color.png'
+        image: '/assets/images/stone_calacatta_oro_color.png'
     },
     {
-        name: 'רוזה פורטוגל',
-        type: 'שיש • פורטוגל',
+        name: 'ארבסקטו',
+        type: 'שיש • איטליה',
         category: 'שיש',
-        tone: 'ורוד',
-        code: 'Ros-07',
-        toneDetails: 'ורוד פסטל',
+        tone: 'לבן',
+        code: 'AR-03',
+        toneDetails: 'לבן עם גידים אפורים עזים',
         porosity: 'נמוכה (0.3%)',
-        origin: 'אסטרמוז, פורטוגל',
-        image: '/assets/images/stone_rosa_portugal_color.png'
+        origin: 'טוסקנה, איטליה',
+        image: '/assets/images/stone_arabescato_color.png'
     },
     {
-        name: 'פיאטרה גריי',
-        type: 'שיש • איראן',
+        name: 'אמפרדור בהיר',
+        type: 'שיש • ספרד',
         category: 'שיש',
-        tone: 'אפור',
-        code: 'Pie-08',
-        toneDetails: 'אפור גרפיט',
-        porosity: 'נמוכה (0.2%)',
-        origin: 'איספהאן, איראן',
-        image: '/assets/images/stone_pietra_grey_color.png'
+        tone: 'חום',
+        code: 'EL-04',
+        toneDetails: 'חום בהיר עם גידי קרם',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'ספרד',
+        image: '/assets/images/stone_light_emperador_color.png'
     },
     {
         name: 'אמפרדור כהה',
@@ -156,21 +79,165 @@ const stones = [
         image: '/assets/images/stone_emperador_color.png'
     },
     {
-        name: 'אוניקס דבש',
+        name: 'טרוורטין רומאי',
+        type: 'טרוורטין • איטליה',
+        category: 'טרוורטין',
+        tone: 'בז׳',
+        code: 'RT-05',
+        toneDetails: 'שנהב קלאסי',
+        porosity: 'בינונית (1.5%)',
+        origin: 'טיבולי, איטליה',
+        image: '/assets/images/stone_roman_travertine_color.png'
+    },
+    {
+        name: 'טרוורטין כסוף',
+        type: 'טרוורטין • טורקיה',
+        category: 'טרוורטין',
+        tone: 'כסוף',
+        code: 'Trv-12',
+        toneDetails: 'כסף קריר',
+        porosity: 'בינונית (1.8%)',
+        origin: 'דניזלי, טורקיה',
+        image: '/assets/images/stone_silver_travertine_color.png'
+    },
+    {
+        name: 'גראנד אנטיקו',
+        type: 'שיש • צרפת',
+        category: 'שיש',
+        tone: 'שחור',
+        code: 'GA-06',
+        toneDetails: 'שחור עמוק עם הכללות לבנות',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'צרפת',
+        image: '/assets/images/stone_grand_antico_color.png'
+    },
+    {
+        name: 'נרו מרקווינה',
+        type: 'שיש • ספרד',
+        category: 'שיש',
+        tone: 'שחור',
+        code: 'Mar-05',
+        toneDetails: 'שחור פחם',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'חבל הבאסקים, ספרד',
+        image: '/assets/images/stone_nero_marquina_color.png'
+    },
+    {
+        name: 'פראדה ורדה',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'PV-07',
+        toneDetails: 'ירוק אמרלד עם גידים לבנים',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'איטליה',
+        image: '/assets/images/stone_prada_verde_color.png'
+    },
+    {
+        name: 'ורדה אלפי',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'ירוק',
+        code: 'Ver-01',
+        toneDetails: 'ירוק יער עמוק',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'פיימונטה, איטליה',
+        image: '/assets/images/stone_verde_alpi_color.png'
+    },
+    {
+        name: 'רוסו לבנטו',
+        type: 'שיש • איטליה',
+        category: 'שיש',
+        tone: 'אדום',
+        code: 'RL-08',
+        toneDetails: 'אדום דובדבן וסגול',
+        porosity: 'נמוכה (0.4%)',
+        origin: 'ליגוריה, איטליה',
+        image: '/assets/images/stone_rosso_levanto_color.png'
+    },
+    {
+        name: 'טאג׳ מאהל',
+        type: 'קוורציט • ברזיל',
+        category: 'קוורציט',
+        tone: 'בז׳',
+        code: 'TM-09',
+        toneDetails: 'לבן שמנת שקוף למחצה',
+        porosity: 'נמוכה מאוד (0.1%)',
+        origin: 'ברזיל',
+        image: '/assets/images/stone_taj_mahal_color.png'
+    },
+    {
+        name: 'אוניקס לבן',
         type: 'אוניקס • טורקיה',
         category: 'אוניקס',
-        tone: 'זהב',
-        code: 'Ony-10',
-        toneDetails: 'זהב שקוף',
+        tone: 'לבן',
+        code: 'WO-10',
+        toneDetails: 'לבן חלבי שקוף',
         porosity: 'נמוכה מאוד (0.05%)',
         origin: 'טורקיה',
-        image: '/assets/images/stone_onyx_color.png'
+        image: '/assets/images/stone_white_onyx_color.png'
+    },
+    {
+        name: 'אוניקס רוזה',
+        type: 'אוניקס • איראן',
+        category: 'אוניקס',
+        tone: 'ורוד',
+        code: 'RO-11',
+        toneDetails: 'ורוד עדין עם גידי זהב',
+        porosity: 'נמוכה מאוד (0.05%)',
+        origin: 'איראן',
+        image: '/assets/images/stone_rose_onyx_color.png'
+    },
+    {
+        name: 'ג׳ייד גרין',
+        type: 'אוניקס • איטליה',
+        category: 'אוניקס',
+        tone: 'ירוק',
+        code: 'JG-12',
+        toneDetails: 'ירוק ירקן שקוף',
+        porosity: 'נמוכה מאוד (0.05%)',
+        origin: 'איטליה',
+        image: '/assets/images/stone_jade_green_color.png'
+    },
+    {
+        name: 'רוזה נורווגיה',
+        type: 'שיש • נורווגיה',
+        category: 'שיש',
+        tone: 'ורוד',
+        code: 'RN-13',
+        toneDetails: 'ורוד בהיר עם גידים אפורים',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'נורווגיה',
+        image: '/assets/images/stone_norwegian_rose_color.png'
+    },
+    {
+        name: 'פנדה לבן',
+        type: 'שיש • סין',
+        category: 'שיש',
+        tone: 'שחור',
+        code: 'PW-14',
+        toneDetails: 'לבן טהור עם גידים שחורים עזים',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'סין',
+        image: '/assets/images/stone_panda_white_color.png'
+    },
+    {
+        name: 'קרמה מרפיל',
+        type: 'שיש • ספרד',
+        category: 'שיש',
+        tone: 'בז׳',
+        code: 'CM-15',
+        toneDetails: 'בז׳ חם ואחיד',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'ספרד',
+        image: '/assets/images/stone_crema_marfil_color.png'
     }
 ];
 
 const categories = ['כל האבנים', 'שיש', 'טרוורטין', 'קוורציט', 'אבן גיר', 'בזלת', 'אוניקס'];
 const tones = [
     { id: 'לבן', color: '#FFFFFF' },
+    { id: 'בז׳', color: '#F5F5DC' },
     { id: 'אפור', color: '#BDBDBD' },
     { id: 'כסוף', color: '#E0E0E0' },
     { id: 'שחור', color: '#212121' },
