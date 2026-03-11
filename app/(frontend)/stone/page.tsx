@@ -376,17 +376,6 @@ const stones = [
         image: '/assets/images/stone_honey_onyx_color.png'
     },
     {
-        name: 'רוסו לואנה',
-        type: 'שיש • איטליה',
-        category: 'שיש',
-        tone: 'אדום',
-        code: 'RLU-29',
-        toneDetails: 'קלידוסקופ של סגול, ירוק ואדום',
-        porosity: 'נמוכה (0.3%)',
-        origin: 'איטליה',
-        image: '/assets/images/stone_rosso_luana_color.png'
-    },
-    {
         name: 'פליסנדרו',
         type: 'שיש • איטליה',
         category: 'שיש',
