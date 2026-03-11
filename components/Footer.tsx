@@ -66,20 +66,20 @@ export default function Footer() {
 
                             if (submitted) {
                                 return (
-                                    <div className="h-full flex flex-col justify-center animate-pulse">
-                                        <p className="text-[#149cb8] text-[10px] uppercase tracking-[0.2em] font-bold">הודעתך נשלחה בהצלחה.</p>
-                                        <p className="text-slate-500 text-[9px] mt-2 italic uppercase">נציגנו יצרו איתך קשר בהקדם.</p>
+                                    <div className="h-full flex flex-col justify-center animate-pulse text-right">
+                                        <p className="text-white text-[10px] uppercase tracking-[0.2em] font-bold">הודעתך נשלחה בהצלחה.</p>
+                                        <p className="text-white/60 text-[9px] mt-2 italic uppercase">נציגנו יצרו איתך קשר בהקדם.</p>
                                     </div>
                                 );
                             }
 
                             return (
-                                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                                <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-right">
                                     <input
                                         type="text"
                                         placeholder="שם מלא"
                                         required
-                                        className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700 w-full"
+                                        className="bg-transparent border-b border-white/20 py-2 text-[11px] text-white focus:border-[#149cb8] outline-none transition-colors placeholder:text-white/40 w-full text-right"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                     />
@@ -88,7 +88,7 @@ export default function Footer() {
                                             type="tel"
                                             placeholder="טלפון"
                                             required
-                                            className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700"
+                                            className="bg-transparent border-b border-white/20 py-2 text-[11px] text-white focus:border-[#149cb8] outline-none transition-colors placeholder:text-white/40 text-right"
                                             value={formData.phone}
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                         />
@@ -96,7 +96,7 @@ export default function Footer() {
                                             type="email"
                                             placeholder="אימייל"
                                             required
-                                            className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700"
+                                            className="bg-transparent border-b border-white/20 py-2 text-[11px] text-white focus:border-[#149cb8] outline-none transition-colors placeholder:text-white/40 text-right"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         />
@@ -105,15 +105,15 @@ export default function Footer() {
                                         placeholder="הודעה"
                                         rows={2}
                                         required
-                                        className="bg-transparent border-b border-white/10 py-2 text-[11px] focus:border-[#149cb8] outline-none transition-colors placeholder:text-slate-700 resize-none"
+                                        className="bg-transparent border-b border-white/20 py-2 text-[11px] text-white focus:border-[#149cb8] outline-none transition-colors placeholder:text-white/40 resize-none text-right"
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     ></textarea>
                                     <button
                                         type="submit"
-                                        className="mt-2 text-[10px] uppercase tracking-[0.3em] font-bold text-white border border-white/20 py-3 hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
+                                        className="mt-2 text-[10px] uppercase tracking-[0.3em] font-bold text-white border border-white/30 py-3 hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
                                     >
-                                        שלח הודעה <ArrowLeft className="w-3 h-3" />
+                                        שלח הודעה <ArrowLeft className="w-3 h-3 rotate-180" />
                                     </button>
                                 </form>
                             );
