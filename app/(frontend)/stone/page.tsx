@@ -451,6 +451,50 @@ const stones = [
         porosity: 'נמוכה (0.15%)',
         origin: 'ברזיל',
         image: '/assets/images/stone_shangri_la_color.png'
+    },
+    {
+        name: 'טרוורטין לבן',
+        type: 'טרוורטין • איטליה',
+        category: 'טרוורטין',
+        tone: 'לבן',
+        code: 'WT-37',
+        toneDetails: 'קרם-לבן רך עם נקבוביות ליניאריות עדינות',
+        porosity: 'בינונית (1.2%)',
+        origin: 'איטליה',
+        image: '/assets/images/stone_white_travertine_color.png'
+    },
+    {
+        name: 'ארמני חום',
+        type: 'שיש • ספרד',
+        category: 'שיש',
+        tone: 'חום',
+        code: 'AB-38',
+        toneDetails: 'חום קפה עמוק עם גידי זהב ולבן עדינים',
+        porosity: 'נמוכה (0.3%)',
+        origin: 'ספרד',
+        image: '/assets/images/stone_armani_brown_color.png'
+    },
+    {
+        name: 'סילבר דרגון',
+        type: 'שיש • סין',
+        category: 'שיש',
+        tone: 'שחור',
+        code: 'SD-39',
+        toneDetails: 'שחור פחם עמוק עם גידי לבן עוצמתיים',
+        porosity: 'נמוכה (0.2%)',
+        origin: 'סין',
+        image: '/assets/images/stone_silver_dragon_color.png'
+    },
+    {
+        name: 'ארמני שחור',
+        type: 'שיש • סין',
+        category: 'שיש',
+        tone: 'שחור',
+        code: 'BA-40',
+        toneDetails: 'שחור אלגנטי עם גידי לבן חוצים עדינים',
+        porosity: 'נמוכה (0.15%)',
+        origin: 'סין',
+        image: '/assets/images/stone_black_armani_china_color.png'
     }
 ];
 
