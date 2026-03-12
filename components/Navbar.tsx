@@ -4,12 +4,14 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu as MenuIcon, Square, ChevronDown } from 'lucide-react';
+import { Menu as MenuIcon, Square, ChevronDown, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useInspiration } from './InspirationContext';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null);
+  const { savedItems, openDrawer } = useInspiration();
 
   const bathCategories = [
     { name: 'כיורי רחצה', href: '/bath?category=basins', image: '/assets/images/nav_bath_basins_color.png' },
@@ -164,6 +166,14 @@ export default function Navbar() {
       </AnimatePresence>
 
       <div className="flex items-center gap-6">
+        <button onClick={openDrawer} className="relative text-white hover:text-[#149cb8] transition-colors">
+          <Heart className="w-5 h-5" />
+          {savedItems.length > 0 && (
+            <span className="absolute -top-2 -right-2 bg-[#149cb8] text-white text-[9px] w-4 h-4 flex items-center justify-center rounded-full">
+              {savedItems.length}
+            </span>
+          )}
+        </button>
         <Link href="/contact" className="hidden lg:block border border-white/20 text-white text-[11px] tracking-[0.2em] uppercase py-3 px-6 hover:bg-white hover:text-[#080c0d] transition-all" suppressHydrationWarning>
           תיאום ייעוץ
         </Link>

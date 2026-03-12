@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { Download, Bookmark, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Download, Bookmark, ChevronLeft, ChevronRight, X, Heart } from 'lucide-react';
+import { useInspiration } from '@/components/InspirationContext';
+import ConsultationModal from '@/components/ConsultationModal';
 
 interface Product {
   id: string;
@@ -45,11 +47,29 @@ interface Product {
 export default function ProductDetailContent({ product, categorySlug }: { product: Product, categorySlug: string }) {
   const [activeTab, setActiveTab] = useState('Overview');
   const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isSaved, addItem, removeItem } = useInspiration();
+
+  const saved = isSaved(product.id);
 
   const images = [
     product.mainImage?.url,
     ...(product.gallery?.map(img => img.url) || [])
   ].filter(Boolean) as string[];
+
+  const handleSaveToggle = () => {
+    if (saved) {
+      removeItem(product.id);
+    } else {
+      addItem({
+        id: product.id,
+        slug: product.slug,
+        title: product.title,
+        image: images[0],
+        categorySlug
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] text-right" dir="rtl">
@@ -142,12 +162,12 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
                 dangerouslySetInnerHTML={{ __html: product.overview?.html || '' }}
               />
               <div className="flex flex-col gap-4">
-                <button className="w-full bg-white text-black py-6 text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-opacity-90 transition-all">
+                <button onClick={() => setIsModalOpen(true)} className="w-full bg-white text-black py-6 text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-opacity-90 transition-all">
                   תיאום ייעוץ
                 </button>
-                <button className="w-full border border-white/30 text-white py-6 text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-white/10 transition-all flex items-center justify-center gap-3">
-                  <Bookmark className="text-sm w-4 h-4" />
-                  שמור ללוח השראה
+                <button onClick={handleSaveToggle} className={`w-full border py-6 text-[11px] font-bold tracking-[0.3em] uppercase transition-all flex items-center justify-center gap-3 ${saved ? 'bg-white text-black border-white' : 'border-white/30 text-white hover:bg-white/10'}`}>
+                  <Heart className="text-sm w-4 h-4 transition-all duration-300" fill={saved ? "currentColor" : "transparent"} />
+                  {saved ? 'נשמר בלוח ההשראה' : 'שמור ללוח השראה'}
                 </button>
               </div>
             </div>
@@ -307,6 +327,12 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
           </section>
         )}
       </main>
+
+      <ConsultationModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        productName={product.title} 
+      />
     </div>
   );
 }
