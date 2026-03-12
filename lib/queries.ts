@@ -46,7 +46,7 @@ export const GET_PRODUCT_DETAILS = gql`
         id
         title
         slug
-        collectionProducts(where: { slug_not: $slug }) {
+        collectionProducts(first: 3, where: { slug_not: $slug }) {
           id
           title
           slug
