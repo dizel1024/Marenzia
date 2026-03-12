@@ -14,35 +14,35 @@ const B_W_PLACEHOLDER_IDS = [
 ];
 
 const COLORFUL_FALLBACKS: Record<string, string[]> = {
-  'nouveau-penthouse': [
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+  "nouveau-penthouse": [
+    "/assets/images/projects/nouveau-penthouse-1.jpg",
+    "/assets/images/projects/nouveau-penthouse-2.jpg",
+    "/assets/images/projects/nouveau-penthouse-3.jpg"
   ],
-  'azure-coastal-villa': [
-    'https://images.unsplash.com/photo-1613490900226-06bb50570b5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+  "azure-coastal-villa": [
+    "/assets/images/projects/azure-coastal-villa-1.jpg",
+    "/assets/images/projects/azure-coastal-villa-2.jpg",
+    "/assets/images/projects/azure-coastal-villa-3.jpg"
   ],
-  'the-monolith-hotel': [
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1551882547-ff40c0d589rx?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+  "the-monolith-hotel": [
+    "/assets/images/projects/the-monolith-hotel-1.jpg",
+    "/assets/images/projects/the-monolith-hotel-2.jpg",
+    "/assets/images/projects/the-monolith-hotel-3.jpg"
   ],
-  'carrara-showroom': [
-    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+  "carrara-showroom": [
+    "/assets/images/projects/carrara-showroom-1.jpg",
+    "/assets/images/projects/carrara-showroom-2.jpg",
+    "/assets/images/projects/carrara-showroom-3.jpg"
   ],
-  'desert-retreat': [
-    'https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+  "desert-retreat": [
+    "/assets/images/projects/desert-retreat-1.jpg",
+    "/assets/images/projects/desert-retreat-2.jpg",
+    "/assets/images/projects/desert-retreat-3.jpg"
   ],
-  'highline-residence': [
-    'https://images.unsplash.com/photo-1600607687644-aac4c15cecb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1600566753086-00f18efc2291?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1600585154526-990dced4ea0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+  "highline-residence": [
+    "/assets/images/projects/highline-residence-1.jpg",
+    "/assets/images/projects/highline-residence-2.jpg",
+    "/assets/images/projects/highline-residence-3.jpg"
   ]
 };
 
@@ -61,14 +61,14 @@ export function getColorfulMainImage(slug: string, originalUrl: string | undefin
   if (fallbacks && fallbacks.length > 0) {
     return fallbacks[0];
   }
-  return 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'; // generic vibrant architecture
+  return '/assets/images/projects/nouveau-penthouse-1.jpg'; // generic vibrant architecture
 }
 
 export function getColorfulGallery(slug: string, originalGallery: any[] | undefined): any[] {
   const fallbacks = COLORFUL_FALLBACKS[slug] || [
-    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
-    'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+    '/assets/images/projects/nouveau-penthouse-1.jpg',
+    '/assets/images/projects/nouveau-penthouse-2.jpg',
+    '/assets/images/projects/nouveau-penthouse-3.jpg'
   ];
 
   if (!originalGallery || originalGallery.length === 0) {
