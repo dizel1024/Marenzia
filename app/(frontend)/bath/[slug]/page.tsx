@@ -1,4 +1,5 @@
 import React from 'react';
+export const dynamic = 'force-dynamic';
 import { hygraph } from '@/lib/hygraph';
 import { GET_PRODUCT_DETAILS } from '@/lib/queries';
 import ProductDetailContent from './ProductDetailContent';

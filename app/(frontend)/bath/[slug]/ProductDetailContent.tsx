@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'motion/react';
-import { Download, Bookmark } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Download, Bookmark, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 interface Product {
   id: string;
@@ -44,7 +44,7 @@ interface Product {
 
 export default function ProductDetailContent({ product, categorySlug }: { product: Product, categorySlug: string }) {
   const [activeTab, setActiveTab] = useState('Overview');
-  const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+  const [enlargedImageIndex, setEnlargedImageIndex] = useState<number | null>(null);
 
   const images = [
     product.mainImage?.url,
@@ -53,11 +53,63 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] text-right" dir="rtl">
-      {enlargedImage && (
-        <div className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center p-8" onClick={() => setEnlargedImage(null)}>
-          <Image src={enlargedImage} alt="Enlarged" width={1200} height={1200} className="max-w-full max-h-full object-contain" />
-        </div>
-      )}
+      <AnimatePresence>
+        {enlargedImageIndex !== null && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] bg-black/95 flex flex-col items-center justify-center p-4 lg:p-8"
+          >
+            <button 
+              className="absolute top-6 right-6 lg:top-10 lg:right-10 w-12 h-12 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 rounded-full transition-all z-50"
+              onClick={() => setEnlargedImageIndex(null)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <div className="relative w-full h-full flex items-center justify-center" dir="ltr">
+              {images.length > 1 && (
+                <button 
+                  className="absolute left-4 lg:left-12 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-105 transition-all z-10 bg-black/50 backdrop-blur-sm"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setEnlargedImageIndex(prev => prev === 0 ? images.length - 1 : (prev || 0) - 1);
+                  }}
+                >
+                  <ChevronLeft className="w-8 h-8 ml-[-2px]" />
+                </button>
+              )}
+
+              <div className="relative w-full max-w-6xl h-[85vh]">
+                <Image 
+                  src={images[enlargedImageIndex]} 
+                  alt={`${product.title} gallery view`} 
+                  fill
+                  className="object-contain"
+                  priority 
+                />
+              </div>
+
+              {images.length > 1 && (
+                <button 
+                  className="absolute right-4 lg:right-12 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black hover:scale-105 transition-all z-10 bg-black/50 backdrop-blur-sm"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setEnlargedImageIndex(prev => prev === images.length - 1 ? 0 : (prev || 0) + 1);
+                  }}
+                >
+                  <ChevronRight className="w-8 h-8 mr-[-2px]" />
+                </button>
+              )}
+            </div>
+            
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-[0.3em] font-mono">
+              {enlargedImageIndex + 1} / {images.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main className="w-full">
         {/* Hero Section */}
@@ -110,9 +162,14 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
                 <div 
                   key={i}
                   className={`${i === 2 ? 'col-span-12 aspect-[16/9] mt-8' : 'col-span-6 aspect-[3/4] ' + (i === 1 ? '-mt-12' : 'mt-12')} bg-zinc-200 overflow-hidden relative group cursor-pointer`} 
-                  onClick={() => setEnlargedImage(img)}
+                  onClick={() => setEnlargedImageIndex(i)}
                 >
                   <Image alt={`${product.title} detail ${i+1}`} width={i === 2 ? 1200 : 600} height={i === 2 ? 675 : 800} className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src={img} />
+                  {i === 2 && images.length > 3 && (
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-colors group-hover:bg-black/60">
+                      <span className="text-white text-4xl font-serif italic">+ {images.length - 3}</span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

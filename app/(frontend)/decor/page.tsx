@@ -1,4 +1,6 @@
 import React, { Suspense } from 'react';
+
+export const dynamic = 'force-dynamic';
 import { hygraph } from '@/lib/hygraph';
 import { GET_PRODUCTS_BY_TYPE } from '@/lib/queries';
 import CategoryListingContent from '../CategoryListingContent';
