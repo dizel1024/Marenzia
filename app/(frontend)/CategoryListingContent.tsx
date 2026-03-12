@@ -19,7 +19,11 @@ interface Product {
   };
   productCollection?: {
     title: string;
+    slug: string;
   };
+  productMaterials?: {
+    name: string;
+  }[];
 }
 
 interface Category {
@@ -41,10 +45,34 @@ export default function CategoryListingContent({
 }) {
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get('category') || 'all';
+  const activeCollection = searchParams.get('collection') || 'all';
+  const activeMaterial = searchParams.get('material') || 'all';
 
-  const filteredProducts = activeCategory === 'all'
-    ? products
-    : products.filter(p => p.category?.slug === activeCategory);
+  const collections = Array.from(new Set(
+    products.filter(p => p.productCollection).map(p => JSON.stringify({ slug: p.productCollection!.slug, name: p.productCollection!.title }))
+  )).map(s => JSON.parse(s as string));
+
+  const materials = Array.from(new Set(
+    products.filter(p => p.productMaterials).flatMap(p => p.productMaterials!.map(m => m.name))
+  ));
+
+  const filteredProducts = products.filter(p => {
+    const matchCategory = activeCategory === 'all' || p.category?.slug === activeCategory;
+    const matchCollection = activeCollection === 'all' || p.productCollection?.slug === activeCollection;
+    const matchMaterial = activeMaterial === 'all' || p.productMaterials?.some(m => m.name === activeMaterial);
+    return matchCategory && matchCollection && matchMaterial;
+  });
+
+  const createFilterUrl = (key: string, value: string | null) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (value && value !== 'all') {
+      params.set(key, value);
+    } else {
+      params.delete(key);
+    }
+    const query = params.toString();
+    return query ? `${basePath}?${query}` : basePath;
+  };
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] text-right" dir="rtl">
@@ -60,7 +88,7 @@ export default function CategoryListingContent({
                 {categories.map((cat) => (
                   <li key={cat.id}>
                     <Link
-                      href={cat.slug ? `${basePath}?category=${cat.slug}` : basePath}
+                      href={createFilterUrl('category', cat.slug)}
                       className={`text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 block hover:pr-2 ${activeCategory === (cat.slug || 'all')
                         ? 'text-[#149cb8] pr-2 border-r-2 border-[#149cb8]'
                         : 'text-black/50 hover:text-black'
@@ -72,6 +100,55 @@ export default function CategoryListingContent({
                 ))}
               </ul>
             </div>
+
+            {collections.length > 0 && (
+              <div className="pt-12 border-t border-black/5">
+                <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-black/40 mb-8">קולקציות</h3>
+                <ul className="space-y-4">
+                  <li>
+                    <Link
+                      href={createFilterUrl('collection', 'all')}
+                      className={`text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 block hover:pr-2 ${activeCollection === 'all' ? 'text-[#149cb8] pr-2 border-r-2 border-[#149cb8]' : 'text-black/50 hover:text-black'}`}
+                    >
+                      הכל
+                    </Link>
+                  </li>
+                  {collections.map((col: any) => (
+                    <li key={col.slug}>
+                      <Link
+                        href={createFilterUrl('collection', col.slug)}
+                        className={`text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 block hover:pr-2 ${activeCollection === col.slug ? 'text-[#149cb8] pr-2 border-r-2 border-[#149cb8]' : 'text-black/50 hover:text-black'}`}
+                      >
+                        {col.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {materials.length > 0 && (
+              <div className="pt-12 border-t border-black/5">
+                <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-black/40 mb-8">חומריות</h3>
+                <div className="flex flex-wrap gap-2 text-[10px] items-center">
+                  <Link
+                    href={createFilterUrl('material', 'all')}
+                    className={`px-3 py-1 rounded-full tracking-widest font-bold transition-colors ${activeMaterial === 'all' ? 'bg-[#149cb8] text-white' : 'bg-black/5 text-black/60 hover:bg-black/10'}`}
+                  >
+                    הכל
+                  </Link>
+                  {materials.map((mat: any) => (
+                    <Link
+                      key={mat}
+                      href={createFilterUrl('material', mat)}
+                      className={`px-3 py-1 rounded-full tracking-widest font-bold transition-colors ${activeMaterial === mat ? 'bg-[#149cb8] text-white' : 'bg-black/5 text-black/60 hover:bg-black/10'}`}
+                    >
+                      {mat}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </aside>
 

@@ -123,6 +123,10 @@ export const GET_PRODUCTS_BY_TYPE = gql`
       }
       productCollection {
         title
+        slug
+      }
+      productMaterials {
+        name
       }
     }
   }
