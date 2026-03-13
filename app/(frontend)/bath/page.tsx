@@ -8,11 +8,14 @@ import CategoryListingContent from '../CategoryListingContent';
 const categories = [
   { id: 'all', name: 'הכל', slug: null },
   { id: 'basins', name: 'כיורי רחצה', slug: 'basins' },
+  { id: 'basins-wall', name: 'כיור תלוי', slug: 'basins', mounting: 'WALL_MOUNTED' },
+  { id: 'basins-free', name: 'כיור רצפתי', slug: 'basins', mounting: 'FREESTANDING' },
   { id: 'vanity', name: 'ארון אמבטיה', slug: 'vanity' },
+  { id: 'vanity-wall', name: 'ארון תלוי', slug: 'vanity', mounting: 'WALL_MOUNTED' },
+  { id: 'vanity-free', name: 'ארון רצפתי', slug: 'vanity', mounting: 'FREESTANDING' },
   { id: 'storage', name: 'ארונות אחסון ומדפים', slug: 'storage' },
   { id: 'accessories', name: 'אביזרי אמבטיה', slug: 'accessories' },
   { id: 'taps', name: 'ברזים ואביזרים', slug: 'taps' },
-  { id: 'rails', name: 'מתלי מגבות', slug: 'rails' },
 ];
 
 async function BathContent() {

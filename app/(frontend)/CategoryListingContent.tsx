@@ -31,6 +31,7 @@ interface Category {
   id: string;
   name: string;
   slug: string | null;
+  mounting?: string;
 }
 
 export default function CategoryListingContent({ 
@@ -45,7 +46,8 @@ export default function CategoryListingContent({
   title: string;
 }) {
   const searchParams = useSearchParams();
-  const activeCategory = searchParams.get('category') || 'all';
+  const activeCategoryParam = searchParams.get('category') || 'all';
+  const activeCategory = activeCategoryParam;
   const activeCollection = searchParams.get('collection') || 'all';
   const activeMaterial = searchParams.get('material') || 'all';
   const activeMounting = searchParams.get('mounting') || 'all';
@@ -64,11 +66,23 @@ export default function CategoryListingContent({
 
   const mountingTypeLabels: Record<string, string> = {
     WALL_MOUNTED: 'תלוי',
-    FREESTANDING: 'עומד',
+    FREESTANDING: 'רצפתי',
   };
 
+  // Find the active category definition to check for compound filters
+  const activeCategoryDef = categories.find(c => c.id === activeCategory);
+  const isCompoundFilter = activeCategoryDef && activeCategoryDef.mounting;
+
   const filteredProducts = products.filter(p => {
-    const matchCategory = activeCategory === 'all' || p.category?.slug === activeCategory;
+    let matchCategory: boolean;
+    if (activeCategory === 'all') {
+      matchCategory = true;
+    } else if (isCompoundFilter) {
+      // Compound filter: match both category slug AND mounting type
+      matchCategory = p.category?.slug === activeCategoryDef.slug && p.mountingType === activeCategoryDef.mounting;
+    } else {
+      matchCategory = p.category?.slug === activeCategory;
+    }
     const matchCollection = activeCollection === 'all' || p.productCollection?.slug === activeCollection;
     const matchMaterial = activeMaterial === 'all' || p.productMaterials?.some(m => m.name === activeMaterial);
     const matchMounting = activeMounting === 'all' || p.mountingType === activeMounting;
@@ -81,6 +95,18 @@ export default function CategoryListingContent({
       params.set(key, value);
     } else {
       params.delete(key);
+    }
+    const query = params.toString();
+    return query ? `${basePath}?${query}` : basePath;
+  };
+
+  // For category filters, use the category id instead of slug to support compound filters
+  const createCategoryFilterUrl = (cat: Category) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (cat.id !== 'all') {
+      params.set('category', cat.id);
+    } else {
+      params.delete('category');
     }
     const query = params.toString();
     return query ? `${basePath}?${query}` : basePath;
@@ -100,11 +126,11 @@ export default function CategoryListingContent({
                 {categories.map((cat) => (
                   <li key={cat.id}>
                     <Link
-                      href={createFilterUrl('category', cat.slug)}
-                      className={`text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 block hover:pr-2 ${activeCategory === (cat.slug || 'all')
+                      href={createCategoryFilterUrl(cat)}
+                      className={`text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 block hover:pr-2 ${activeCategory === cat.id
                         ? 'text-[#149cb8] pr-2 border-r-2 border-[#149cb8]'
                         : 'text-black/50 hover:text-black'
-                        }`}
+                        }${cat.mounting ? ' pr-4' : ''}`}
                     >
                       {cat.name}
                     </Link>
@@ -191,7 +217,7 @@ export default function CategoryListingContent({
           <div className="mb-20 space-y-4">
             <p className="text-[10px] tracking-[0.5em] text-black/30 uppercase font-bold">{title}</p>
             <h1 className="font-serif text-6xl md:text-8xl italic font-light tracking-tight text-black">
-              {categories.find(c => (c.slug || 'all') === activeCategory)?.name || title}
+              {categories.find(c => c.id === activeCategory)?.name || title}
             </h1>
           </div>
 

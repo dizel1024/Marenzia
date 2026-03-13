@@ -15,10 +15,10 @@ export default function Navbar() {
 
   const bathCategories = [
     { name: 'כיורי רחצה', href: '/bath?category=basins', image: '/assets/images/nav_bath_basins_color.png' },
+    { name: 'ארון אמבטיה', href: '/bath?category=vanity', image: '/assets/images/nav_bath_vanity_color.png' },
     { name: 'ארונות אחסון ומדפים', href: '/bath?category=storage', image: '/assets/images/nav_bath_storage_color.png' },
     { name: 'אביזרי אמבטיה', href: '/bath?category=accessories', image: '/assets/images/nav_bath_accessories_color.png' },
     { name: 'ברזים ואביזרים', href: '/bath?category=taps', image: '/assets/images/nav_bath_taps_color.png' },
-    { name: 'מתלי מגבות', href: '/bath?category=rails', image: '/assets/images/nav_bath_towel_stand_color.png' },
   ];
 
   const decorCategories = [
