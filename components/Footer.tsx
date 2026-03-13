@@ -37,8 +37,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <h6 className="text-white text-[10px] uppercase tracking-[0.3em] font-bold">פניות</h6>
                         <ul className="space-y-4 text-sm">
-                            <li><a className="hover:text-white transition-colors" href="#" suppressHydrationWarning>כללי</a></li>
-                            <li><a className="hover:text-white transition-colors" href="#" suppressHydrationWarning>עיתונות ומדיה</a></li>
+                            <li><a className="hover:text-white transition-colors" href="/contact" suppressHydrationWarning>צור קשר</a></li>
                             <li><a className="hover:text-white transition-colors" href="/commercial" suppressHydrationWarning>חשבון מסחרי</a></li>
                         </ul>
                     </div>
