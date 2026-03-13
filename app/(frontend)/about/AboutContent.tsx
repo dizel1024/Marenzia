@@ -8,9 +8,18 @@ import { motion } from 'motion/react';
 interface AboutPageData {
   heroImage: { url: string };
   heroTitle: string;
-  editorialBlocks: any;
   quote: string;
-  splitSections: any;
+  editorialTitle: string;
+  editorialText1: string;
+  editorialText2: string;
+  philosophyTitle: string;
+  philosophyText: string;
+  philosophyImage: { url: string };
+  philosophyLinkText: string;
+  monolithTitle: string;
+  monolithText: string;
+  monolithImage: { url: string };
+  monolithLinkText: string;
   madeInItalyImage: { url: string };
   lostStonesImage: { url: string };
   footerBgImage: { url: string };
@@ -52,19 +61,16 @@ export default function AboutContent({ data }: { data: AboutPageData }) {
       {/* 2. Three-column Editorial Section */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-12 py-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-32">
-          {data.editorialBlocks?.map((block: any, idx: number) => (
-            <React.Fragment key={idx}>
-              {idx === 0 && (
-                <div className="flex flex-col gap-6">
-                  <h2 className="text-[10px] uppercase tracking-[0.4em] font-bold text-neutral-400">{block.label}</h2>
-                  <div className="w-12 h-[1px] bg-black/10"></div>
-                </div>
-              )}
-              <div className="text-[11px] uppercase tracking-[0.2em] font-bold leading-loose text-neutral-600 space-y-4">
-                <p>{block.text}</p>
-              </div>
-            </React.Fragment>
-          ))}
+          <div className="flex flex-col gap-6">
+            <h2 className="text-[10px] uppercase tracking-[0.4em] font-bold text-neutral-400">{data.editorialTitle}</h2>
+            <div className="w-12 h-[1px] bg-black/10"></div>
+          </div>
+          <div className="text-[11px] uppercase tracking-[0.2em] font-bold leading-loose text-neutral-600 space-y-4">
+            <p>{data.editorialText1}</p>
+          </div>
+          <div className="text-[11px] uppercase tracking-[0.2em] font-bold leading-loose text-neutral-600 space-y-4">
+            <p>{data.editorialText2}</p>
+          </div>
         </div>
       </section>
 
@@ -84,28 +90,47 @@ export default function AboutContent({ data }: { data: AboutPageData }) {
 
       {/* 4. Split-screen Philosophy Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 border-b border-black/5">
-        {data.splitSections?.map((section: any, idx: number) => (
-          <div key={idx} className={`flex flex-col ${idx === 0 ? 'border-l border-black/5' : ''}`}>
-            <div className="aspect-[4/3] bg-zinc-200 overflow-hidden relative">
-              <Image
-                src={section.image?.url || section.image}
-                alt={section.title}
-                fill
-                className="object-cover grayscale"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="p-16 md:p-32 flex flex-col items-start gap-8">
-              <h3 className="text-sm uppercase tracking-[0.4em] font-bold">{section.title}</h3>
-              <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-neutral-500 leading-relaxed max-w-sm">{section.text}</p>
-              <div className="pt-4">
-                <Link href={section.link} className="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 font-bold hover:opacity-50 transition-all inline-block">
-                  {idx === 0 ? 'צפייה בפילוסופיה' : 'חקרו את הקולקציה'}
-                </Link>
-              </div>
+        <div className="flex flex-col border-l border-black/5">
+          <div className="aspect-[4/3] bg-zinc-200 overflow-hidden relative">
+            <Image
+              src={data.philosophyImage?.url || "/assets/images/about_philosophy_1.png"}
+              alt={data.philosophyTitle}
+              fill
+              className="object-cover grayscale"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="p-16 md:p-32 flex flex-col items-start gap-8">
+            <h3 className="text-sm uppercase tracking-[0.4em] font-bold">{data.philosophyTitle}</h3>
+            <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-neutral-500 leading-relaxed max-w-sm">{data.philosophyText}</p>
+            <div className="pt-4">
+              <Link href="/philosophy" className="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 font-bold hover:opacity-50 transition-all inline-block">
+                {data.philosophyLinkText || 'צפייה בפילוסופיה'}
+              </Link>
             </div>
           </div>
-        ))}
+        </div>
+
+        <div className="flex flex-col">
+          <div className="aspect-[4/3] bg-zinc-200 overflow-hidden relative">
+            <Image
+              src={data.monolithImage?.url || "/assets/images/about_philosophy_2.png"}
+              alt={data.monolithTitle}
+              fill
+              className="object-cover grayscale contrast-110"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="p-16 md:p-32 flex flex-col items-start gap-8">
+            <h3 className="text-sm uppercase tracking-[0.4em] font-bold">{data.monolithTitle}</h3>
+            <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-neutral-500 leading-relaxed max-w-sm">{data.monolithText}</p>
+            <div className="pt-4">
+              <Link href="/collections" className="text-[10px] uppercase tracking-[0.3em] border-b border-black pb-1 font-bold hover:opacity-50 transition-all inline-block">
+                {data.monolithLinkText || 'חקרו את הקולקציה'}
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 5. Two-panel Made in Italy/Lost Stones */}

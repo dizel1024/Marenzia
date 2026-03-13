@@ -137,9 +137,18 @@ export const GET_ABOUT_PAGE_DATA = gql`
     aboutPages(first: 1) {
       heroImage { url }
       heroTitle
-      editorialBlocks
+      editorialTitle
+      editorialText1
+      editorialText2
+      philosophyTitle
+      philosophyText
+      philosophyImage { url }
+      philosophyLinkText
+      monolithTitle
+      monolithText
+      monolithImage { url }
+      monolithLinkText
       quote
-      splitSections
       madeInItalyImage { url }
       lostStonesImage { url }
       footerBgImage { url }
