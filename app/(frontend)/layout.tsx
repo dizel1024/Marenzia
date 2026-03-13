@@ -26,6 +26,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="he" dir="rtl" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning className="antialiased bg-[#f7f7f7] text-[#0a0a0a]">
+        <script src="https://widget.tabnav.com/limited-widget.min.js.gz" data-config='{"language":"he","color":"#405ec3","buttonColor":"#0a0a0a","buttonSize":"small","widgetSize":"small","widgetLocation":"right","buttonLocation":"bottom"}' defer></script>
+        <noscript> פתרונות נגישות לאתרי אינטרנט לפי התקן הישראלי 5568<a href="https://tabnav.com/he">הנגשת אתרים</a> </noscript>
         <InspirationProvider>
           <Navbar />
           <InspirationDrawer />

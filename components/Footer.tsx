@@ -121,7 +121,13 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 border-t border-slate-800/50" dir="rtl">
-                    <p className="text-[10px] uppercase tracking-widest text-right">© 2024 MARENZIA DESIGN HOUSE. כל הזכויות שמורות.</p>
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
+                        <p className="text-[10px] uppercase tracking-widest text-right">© 2024 MARENZIA DESIGN HOUSE. כל הזכויות שמורות.</p>
+                        <div className="flex gap-4 text-[10px] tracking-widest">
+                            <a className="hover:text-white transition-colors" href="/privacy-policy" suppressHydrationWarning>מדיניות פרטיות</a>
+                            <a className="hover:text-white transition-colors" href="/accessibility" suppressHydrationWarning>הצהרת נגישות</a>
+                        </div>
+                    </div>
                     <div className="flex gap-12 text-[10px] uppercase tracking-widest">
                         <a className="hover:text-white transition-colors flex items-center gap-1" href="#" suppressHydrationWarning>
                             <Instagram className="w-3 h-3" /> INSTAGRAM

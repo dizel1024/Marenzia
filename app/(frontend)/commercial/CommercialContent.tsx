@@ -17,6 +17,7 @@ interface CommercialPageData {
   service3Text: string;
   formTitle: string;
   formSubtitle: string;
+  featuredProjects?: { slug: string; mainImage?: { url: string } }[];
 }
 
 export default function CommercialContent({ data }: { data: CommercialPageData }) {
@@ -229,42 +230,64 @@ export default function CommercialContent({ data }: { data: CommercialPageData }
           <h2 className="font-serif text-3xl text-[#0B0B0B]">שיתופי פעולה אחרונים</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="aspect-square overflow-hidden relative">
-            <Image 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRdNi-RER6rEYR8xXB-j66GxgugUSA1W7_HAumst8jhABPrcwD6DI6glwT5aeXLms3orVzTaQOBIj9_Gk24Hhi4VeMPB_Ult9O55nS3DVjQTVq8zWW6mVjLHYleTXWtI5FnqYzITsHkLunD_BYtQS1yr73Ctse3y6VstMutyk9ThrSp25tMpcduRyXOmhRD0HqWmDapSq4pjGze1dRSrqDjeGV3kEeXtMS7K8O_gTqZImuUd_2NdtElKKM_DQBXgjxR_bpvdkSLdL2" 
-                alt="Gallery 1" 
-                fill 
-                className="object-cover hover:scale-110 transition-transform duration-1000" 
-                unoptimized
-            />
-          </div>
-          <div className="aspect-square overflow-hidden mt-8 md:mt-16 relative">
-            <Image 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEZQ-2S31lm8uT8dd9Gg7SHp4BpY90i1iSborH0_yRLafhy9vASFA7vWkKtR-ipssxx9UUSDekyNxzNWrRpY0IDeY6pW_7v0bPgfr3j_p_TfclSqLoynhaxC_BRxh3HeryavQM0LHfQNG3AJwnCai72NSwe3OtgQNqng-R3l-TBxa-_zhau41-hpvUOJuKWO9PX8C94e4PhTg5Er4tbI3yVToGsVj0hg1VzL3weea0cYNhzZ11-sbV-9mTS_t__RPYMAK54BzJl74B" 
-                alt="Gallery 2" 
-                fill 
-                className="object-cover hover:scale-110 transition-transform duration-1000" 
-                unoptimized
-            />
-          </div>
-          <div className="aspect-square overflow-hidden relative">
-            <Image 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_jWsCDsp73ho0R7LI7vCH_Wx5pKMD0AJ8FcQ9WFcWvXdID_kFX3nPVr6QcKim3dRvvUkiU0t75XTVi46lF-S2-t2jF7RXtS9zR5KZSDQNZ4lW7_AZIz-lnBb55CThXNZQGq1ILmFsQ8nnY8AE2CXnf8UHqH_3I3nFwi-zVHVcqBvpiOmnfTin7-jY1zQk91jyfmjZhMgbPICKc6by018vCVWl7hJI2uszgCd_lBm2BsMD23sZ0nny2j06WnInH-GOEHoUqTySlL5y" 
-                alt="Gallery 3" 
-                fill 
-                className="object-cover hover:scale-110 transition-transform duration-1000" 
-                unoptimized
-            />
-          </div>
-          <div className="aspect-square overflow-hidden mt-8 md:mt-16 relative">
-            <Image 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv5eDvLNg7JPyXtQHJlWD0wDC9c3uihlsGsXCr5oz6fRH0otBjh2fiNYBPAyH8eykP6mbuPuX-yNdmN6uNNV1tON1yTJa5l61WWPLPyQvX675AuGg9wcpKNCPSwoWX8dRnZV8MtSXYC0tgWEJTt2nB8c1n3YCxc0-JF1aNmjkg4mvVCpwFVemXZoUomcEcmyc4kTMrKz5yqAMdkpF2HwtJPsPcW0YYD2EaSCOS-Ett5wFqn4_CXjGqnUtdWxm4bxE2X7VZkD6DykFx" 
-                alt="Gallery 4" 
-                fill 
-                className="object-cover hover:scale-110 transition-transform duration-1000" 
-                unoptimized
-            />
-          </div>
+          {data.featuredProjects && data.featuredProjects.length > 0 ? (
+            data.featuredProjects.slice(0, 4).map((project, index) => (
+              <a
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className={`aspect-square overflow-hidden relative group block ${
+                  index % 2 !== 0 ? 'mt-8 md:mt-16' : ''
+                }`}
+              >
+                <Image 
+                  src={project.mainImage?.url || '/assets/images/placeholder.jpg'} 
+                  alt={`Project ${index + 1}`} 
+                  fill 
+                  className="object-cover group-hover:scale-110 transition-transform duration-1000" 
+                  unoptimized
+                />
+              </a>
+            ))
+          ) : (
+            <>
+              <div className="aspect-square overflow-hidden relative">
+                <Image 
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRdNi-RER6rEYR8xXB-j66GxgugUSA1W7_HAumst8jhABPrcwD6DI6glwT5aeXLms3orVzTaQOBIj9_Gk24Hhi4VeMPB_Ult9O55nS3DVjQTVq8zWW6mVjLHYleTXWtI5FnqYzITsHkLunD_BYtQS1yr73Ctse3y6VstMutyk9ThrSp25tMpcduRyXOmhRD0HqWmDapSq4pjGze1dRSrqDjeGV3kEeXtMS7K8O_gTqZImuUd_2NdtElKKM_DQBXgjxR_bpvdkSLdL2" 
+                    alt="Gallery 1" 
+                    fill 
+                    className="object-cover hover:scale-110 transition-transform duration-1000" 
+                    unoptimized
+                />
+              </div>
+              <div className="aspect-square overflow-hidden mt-8 md:mt-16 relative">
+                <Image 
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEZQ-2S31lm8uT8dd9Gg7SHp4BpY90i1iSborH0_yRLafhy9vASFA7vWkKtR-ipssxx9UUSDekyNxzNWrRpY0IDeY6pW_7v0bPgfr3j_p_TfclSqLoynhaxC_BRxh3HeryavQM0LHfQNG3AJwnCai72NSwe3OtgQNqng-R3l-TBxa-_zhau41-hpvUOJuKWO9PX8C94e4PhTg5Er4tbI3yVToGsVj0hg1VzL3weea0cYNhzZ11-sbV-9mTS_t__RPYMAK54BzJl74B" 
+                    alt="Gallery 2" 
+                    fill 
+                    className="object-cover hover:scale-110 transition-transform duration-1000" 
+                    unoptimized
+                />
+              </div>
+              <div className="aspect-square overflow-hidden relative">
+                <Image 
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_jWsCDsp73ho0R7LI7vCH_Wx5pKMD0AJ8FcQ9WFcWvXdID_kFX3nPVr6QcKim3dRvvUkiU0t75XTVi46lF-S2-t2jF7RXtS9zR5KZSDQNZ4lW7_AZIz-lnBb55CThXNZQGq1ILmFsQ8nnY8AE2CXnf8UHqH_3I3nFwi-zVHVcqBvpiOmnfTin7-jY1zQk91jyfmjZhMgbPICKc6by018vCVWl7hJI2uszgCd_lBm2BsMD23sZ0nny2j06WnInH-GOEHoUqTySlL5y" 
+                    alt="Gallery 3" 
+                    fill 
+                    className="object-cover hover:scale-110 transition-transform duration-1000" 
+                    unoptimized
+                />
+              </div>
+              <div className="aspect-square overflow-hidden mt-8 md:mt-16 relative">
+                <Image 
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv5eDvLNg7JPyXtQHJlWD0wDC9c3uihlsGsXCr5oz6fRH0otBjh2fiNYBPAyH8eykP6mbuPuX-yNdmN6uNNV1tON1yTJa5l61WWPLPyQvX675AuGg9wcpKNCPSwoWX8dRnZV8MtSXYC0tgWEJTt2nB8c1n3YCxc0-JF1aNmjkg4mvVCpwFVemXZoUomcEcmyc4kTMrKz5yqAMdkpF2HwtJPsPcW0YYD2EaSCOS-Ett5wFqn4_CXjGqnUtdWxm4bxE2X7VZkD6DykFx" 
+                    alt="Gallery 4" 
+                    fill 
+                    className="object-cover hover:scale-110 transition-transform duration-1000" 
+                    unoptimized
+                />
+              </div>
+            </>
+          )}
         </div>
       </section>
     </div>

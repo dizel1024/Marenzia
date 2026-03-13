@@ -265,6 +265,10 @@ export const GET_COMMERCIAL_PAGE_DATA = gql`
       service3Text
       formTitle
       formSubtitle
+      featuredProjects {
+        slug
+        mainImage { url }
+      }
     }
   }
 `;
