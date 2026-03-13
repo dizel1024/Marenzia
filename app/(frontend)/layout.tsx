@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
-import Script from 'next/script';
 import '../globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { InspirationProvider } from '@/components/InspirationContext';
 import InspirationDrawer from '@/components/InspirationDrawer';
+import AccessibilityWidget from '@/components/AccessibilityWidget';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,12 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="he" dir="rtl" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
       <body suppressHydrationWarning className="antialiased bg-[#f7f7f7] text-[#0a0a0a]">
-        <Script 
-          src="https://widget.tabnav.com/limited-widget.min.js.gz" 
-          strategy="afterInteractive"
-          data-config='{"language":"he","color":"#383838","buttonColor":"#0a0a0a","buttonSize":"small","widgetSize":"small","widgetLocation":"right","buttonLocation":"bottom"}'
-        />
-        <noscript> פתרונות נגישות לאתרי אינטרנט לפי התקן הישראלי 5568<a href="https://tabnav.com/he">הנגשת אתרים</a> </noscript>
+        <AccessibilityWidget />
         <InspirationProvider>
           <Navbar />
           <InspirationDrawer />
