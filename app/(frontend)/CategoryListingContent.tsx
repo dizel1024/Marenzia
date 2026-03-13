@@ -24,6 +24,7 @@ interface Product {
   productMaterials?: {
     name: string;
   }[];
+  mountingType?: string;
 }
 
 interface Category {
@@ -47,6 +48,7 @@ export default function CategoryListingContent({
   const activeCategory = searchParams.get('category') || 'all';
   const activeCollection = searchParams.get('collection') || 'all';
   const activeMaterial = searchParams.get('material') || 'all';
+  const activeMounting = searchParams.get('mounting') || 'all';
 
   const collections = Array.from(new Set(
     products.filter(p => p.productCollection).map(p => JSON.stringify({ slug: p.productCollection!.slug, name: p.productCollection!.title }))
@@ -56,11 +58,21 @@ export default function CategoryListingContent({
     products.filter(p => p.productMaterials).flatMap(p => p.productMaterials!.map(m => m.name))
   ));
 
+  const mountingTypes = Array.from(new Set(
+    products.filter(p => p.mountingType).map(p => p.mountingType!)
+  ));
+
+  const mountingTypeLabels: Record<string, string> = {
+    WALL_MOUNTED: 'תלוי',
+    FREESTANDING: 'עומד',
+  };
+
   const filteredProducts = products.filter(p => {
     const matchCategory = activeCategory === 'all' || p.category?.slug === activeCategory;
     const matchCollection = activeCollection === 'all' || p.productCollection?.slug === activeCollection;
     const matchMaterial = activeMaterial === 'all' || p.productMaterials?.some(m => m.name === activeMaterial);
-    return matchCategory && matchCollection && matchMaterial;
+    const matchMounting = activeMounting === 'all' || p.mountingType === activeMounting;
+    return matchCategory && matchCollection && matchMaterial && matchMounting;
   });
 
   const createFilterUrl = (key: string, value: string | null) => {
@@ -144,6 +156,29 @@ export default function CategoryListingContent({
                       className={`px-3 py-1 rounded-full tracking-widest font-bold transition-colors ${activeMaterial === mat ? 'bg-[#149cb8] text-white' : 'bg-black/5 text-black/60 hover:bg-black/10'}`}
                     >
                       {mat}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {mountingTypes.length > 0 && (
+              <div className="pt-12 border-t border-black/5">
+                <h3 className="text-[10px] font-bold tracking-[0.3em] uppercase text-black/40 mb-8">סוג התקנה</h3>
+                <div className="flex flex-wrap gap-2 text-[10px] items-center">
+                  <Link
+                    href={createFilterUrl('mounting', 'all')}
+                    className={`px-3 py-1 rounded-full tracking-widest font-bold transition-colors ${activeMounting === 'all' ? 'bg-[#149cb8] text-white' : 'bg-black/5 text-black/60 hover:bg-black/10'}`}
+                  >
+                    הכל
+                  </Link>
+                  {mountingTypes.map((mt: string) => (
+                    <Link
+                      key={mt}
+                      href={createFilterUrl('mounting', mt)}
+                      className={`px-3 py-1 rounded-full tracking-widest font-bold transition-colors ${activeMounting === mt ? 'bg-[#149cb8] text-white' : 'bg-black/5 text-black/60 hover:bg-black/10'}`}
+                    >
+                      {mountingTypeLabels[mt] || mt}
                     </Link>
                   ))}
                 </div>

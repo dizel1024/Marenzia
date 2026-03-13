@@ -8,6 +8,7 @@ import CategoryListingContent from '../CategoryListingContent';
 const categories = [
   { id: 'all', name: 'הכל', slug: null },
   { id: 'basins', name: 'כיורי רחצה', slug: 'basins' },
+  { id: 'vanity', name: 'ארון אמבטיה', slug: 'vanity' },
   { id: 'storage', name: 'ארונות אחסון ומדפים', slug: 'storage' },
   { id: 'accessories', name: 'אביזרי אמבטיה', slug: 'accessories' },
   { id: 'taps', name: 'ברזים ואביזרים', slug: 'taps' },

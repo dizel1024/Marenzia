@@ -128,6 +128,7 @@ export const GET_PRODUCTS_BY_TYPE = gql`
       productMaterials {
         name
       }
+      mountingType
     }
   }
 `;
