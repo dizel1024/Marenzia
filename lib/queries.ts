@@ -231,6 +231,24 @@ export const GET_PROCESS_PAGE_DATA = gql`
   }
 `;
 
+export const GET_MATERIALS_PAGE_DATA = gql`
+  query GetMaterialsPageData {
+    materialsPages(first: 1) {
+      heroImage { url }
+      heroTitle
+      heroSubtitle
+      storyTitle1
+      storyText1
+      storyImage1 { url }
+      storyTitle2
+      storyText2
+      storyImage2 { url }
+      sourcingTitle
+      sourcingText
+    }
+  }
+`;
+
 export const GET_PROJECTS = gql`
   query GetProjects {
     projects {
