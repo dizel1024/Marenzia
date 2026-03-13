@@ -85,7 +85,7 @@ export default function CommercialContent({ data }: { data: CommercialPageData }
                 className="object-cover transition-all duration-700 opacity-80 group-hover:opacity-100 scale-105 group-hover:scale-100" 
                 unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-10">
               <h3 className="font-serif text-3xl text-white mb-2">{data.service1Title || "מלונאות ואירוח"}</h3>
               <p className="text-white/70 text-sm font-light leading-relaxed transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                 {data.service1Text || "יוקרה סוחפת עבור יעדי האירוח המובילים בעולם."}
@@ -101,7 +101,7 @@ export default function CommercialContent({ data }: { data: CommercialPageData }
                 className="object-cover transition-all duration-700 opacity-80 group-hover:opacity-100 scale-105 group-hover:scale-100" 
                 unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-10">
               <h3 className="font-serif text-3xl text-white mb-2">{data.service2Title || "מסעדות וגסטרונומיה"}</h3>
               <p className="text-white/70 text-sm font-light leading-relaxed transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                 {data.service2Text || "משטחים יוצאי דופן עבור יצירות מופת קולינריות."}
@@ -117,7 +117,7 @@ export default function CommercialContent({ data }: { data: CommercialPageData }
                 className="object-cover transition-all duration-700 opacity-80 group-hover:opacity-100 scale-105 group-hover:scale-100" 
                 unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-10">
               <h3 className="font-serif text-3xl text-white mb-2">{data.service3Title || "סביבות עבודה"}</h3>
               <p className="text-white/70 text-sm font-light leading-relaxed transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all">
                 {data.service3Text || "עידוד פרודוקטיביות באמצעות יוקרה אדריכלית."}
