@@ -150,7 +150,11 @@ export const GET_ABOUT_PAGE_DATA = gql`
       monolithLinkText
       quote
       madeInItalyImage { url }
+      madeInItalyTitle
+      madeInItalySubtitle
       lostStonesImage { url }
+      lostStonesTitle
+      lostStonesSubtitle
       footerBgImage { url }
       footerQuote
     }

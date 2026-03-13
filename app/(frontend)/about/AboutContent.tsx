@@ -21,7 +21,11 @@ interface AboutPageData {
   monolithImage: { url: string };
   monolithLinkText: string;
   madeInItalyImage: { url: string };
+  madeInItalyTitle: string;
+  madeInItalySubtitle: string;
   lostStonesImage: { url: string };
+  lostStonesTitle: string;
+  lostStonesSubtitle: string;
   footerBgImage: { url: string };
   footerQuote: string;
 }
@@ -151,8 +155,8 @@ export default function AboutContent({ data }: { data: AboutPageData }) {
             />
           </div>
           <div className="space-y-2">
-            <h4 className="text-xl font-serif italic tracking-widest">תוצרת איטליה</h4>
-            <p className="text-[10px] text-neutral-400 uppercase tracking-[0.4em] font-bold">אומנות ומסורת</p>
+            <h4 className="text-xl font-serif italic tracking-widest">{data.madeInItalyTitle}</h4>
+            <p className="text-[10px] text-neutral-400 uppercase tracking-[0.4em] font-bold">{data.madeInItalySubtitle}</p>
           </div>
         </motion.div>
         <motion.div
@@ -172,8 +176,8 @@ export default function AboutContent({ data }: { data: AboutPageData }) {
             />
           </div>
           <div className="space-y-2">
-            <h4 className="text-xl font-serif italic tracking-widest">אבנים אבודות</h4>
-            <p className="text-[10px] text-neutral-400 uppercase tracking-[0.4em] font-bold">שימור מורשת</p>
+            <h4 className="text-xl font-serif italic tracking-widest">{data.lostStonesTitle}</h4>
+            <p className="text-[10px] text-neutral-400 uppercase tracking-[0.4em] font-bold">{data.lostStonesSubtitle}</p>
           </div>
         </motion.div>
       </section>
