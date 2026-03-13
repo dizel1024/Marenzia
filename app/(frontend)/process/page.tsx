@@ -4,6 +4,8 @@ import { GET_PROCESS_PAGE_DATA } from '@/lib/queries';
 import ProcessContent from './ProcessContent';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProcessPage() {
   const { processPages } = await hygraph.request<{ processPages: any[] }>(GET_PROCESS_PAGE_DATA);
   const data = processPages[0];

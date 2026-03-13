@@ -168,12 +168,30 @@ export const GET_PHILOSOPHY_PAGE_DATA = gql`
       heroSubtitle
       philosophyTitle
       philosophyText { html }
-      heritageItems
+      heritageYear1
+      heritageTitle1
+      heritageImage1 { url }
+      heritageYear2
+      heritageTitle2
+      heritageImage2 { url }
+      heritageYear3
+      heritageTitle3
+      heritageImage3 { url }
+      heritageYear4
+      heritageTitle4
+      heritageImage4 { url }
       atelierTitle
       atelierText { html }
       atelierMainImage { url }
       atelierSecondaryImage { url }
-      values
+      valuesTitle1
+      valuesDesc1
+      valuesTitle2
+      valuesDesc2
+      valuesTitle3
+      valuesDesc3
+      valuesTitle4
+      valuesDesc4
     }
   }
 `;
@@ -184,9 +202,29 @@ export const GET_PROCESS_PAGE_DATA = gql`
       heroImage { url }
       heroTitle
       heroSubtitle
-      editorialSections
-      features
-      executionDetails
+      sectionLabel1
+      sectionTitle1
+      sectionText1
+      sectionImage1 { url }
+      sectionLabel2
+      sectionTitle2
+      sectionText2
+      sectionImage2 { url }
+      sectionLabel3
+      sectionTitle3
+      sectionText3
+      sectionImage3 { url }
+      sectionLabel4
+      sectionTitle4
+      sectionText4
+      sectionImage4 { url }
+      feature1
+      feature2
+      feature3
+      executionLogisticTitle
+      executionLogisticText
+      executionAdvisoryTitle
+      executionAdvisoryText
       ctaTitle
       ctaSubtitle
     }

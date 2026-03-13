@@ -9,9 +9,13 @@ interface ProcessPageData {
   heroImage: { url: string };
   heroTitle: string;
   heroSubtitle: string;
-  editorialSections: any;
-  features: any;
-  executionDetails: any;
+  sectionLabel1: string; sectionTitle1: string; sectionText1: string; sectionImage1: { url: string };
+  sectionLabel2: string; sectionTitle2: string; sectionText2: string; sectionImage2: { url: string };
+  sectionLabel3: string; sectionTitle3: string; sectionText3: string; sectionImage3: { url: string };
+  sectionLabel4: string; sectionTitle4: string; sectionText4: string; sectionImage4: { url: string };
+  feature1: string; feature2: string; feature3: string;
+  executionLogisticTitle: string; executionLogisticText: string;
+  executionAdvisoryTitle: string; executionAdvisoryText: string;
   ctaTitle: string;
   ctaSubtitle: string;
 }
@@ -57,7 +61,12 @@ export default function ProcessContent({ data }: { data: ProcessPageData }) {
 
       {/* Editorial Content */}
       <main className="max-w-[1440px] mx-auto px-6 lg:px-20 py-32 space-y-48 lg:space-y-64">
-        {data.editorialSections?.map((section: any, idx: number) => (
+        {[
+          { label: data.sectionLabel1, title: data.sectionTitle1, body: data.sectionText1, image: data.sectionImage1?.url },
+          { label: data.sectionLabel2, title: data.sectionTitle2, body: data.sectionText2, image: data.sectionImage2?.url },
+          { label: data.sectionLabel3, title: data.sectionTitle3, body: data.sectionText3, image: data.sectionImage3?.url },
+          { label: data.sectionLabel4, title: data.sectionTitle4, body: data.sectionText4, image: data.sectionImage4?.url }
+        ].filter(s => s.title).map((section, idx) => (
           <section key={idx} className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
             <motion.div
               initial={{ opacity: 0, x: idx % 2 === 0 ? 50 : -50 }}
@@ -68,14 +77,14 @@ export default function ProcessContent({ data }: { data: ProcessPageData }) {
             >
               <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-400 font-bold">{section.label}</span>
               <h2 className="font-serif text-4xl md:text-5xl leading-tight italic">{section.title}</h2>
-              <p className="text-neutral-600 leading-relaxed text-lg font-light">
+              <p className="text-neutral-600 leading-relaxed text-lg font-light whitespace-pre-line">
                 {section.body}
               </p>
               
-              {/* Features list for Synergy section (usually index 2 in original) */}
-              {idx === 2 && data.features && (
+              {/* Features list for Synergy section (index 2) */}
+              {idx === 2 && (data.feature1 || data.feature2) && (
                 <ul className="space-y-4 pt-6">
-                  {data.features?.map((item: string, fIdx: number) => (
+                  {[data.feature1, data.feature2, data.feature3].filter(Boolean).map((item, fIdx) => (
                     <li key={fIdx} className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-[#0a0a0a] font-bold">
                       <span className="size-1.5 bg-black rounded-full"></span> {item}
                     </li>
@@ -83,13 +92,16 @@ export default function ProcessContent({ data }: { data: ProcessPageData }) {
                 </ul>
               )}
 
-              {/* Execution details for Execution section (usually index 3) */}
-              {idx === 3 && data.executionDetails && (
+              {/* Execution details for Execution section (index 3) */}
+              {idx === 3 && (data.executionLogisticTitle || data.executionAdvisoryTitle) && (
                 <div className="pt-8 grid grid-cols-2 gap-12 border-t border-black/5">
-                  {(Array.isArray(data.executionDetails) ? data.executionDetails : []).map((detail: any, dIdx: number) => (
+                  {[
+                    { title: data.executionLogisticTitle, text: data.executionLogisticText },
+                    { title: data.executionAdvisoryTitle, text: data.executionAdvisoryText }
+                  ].filter(d => d.title).map((detail, dIdx) => (
                     <div key={dIdx}>
                       <h4 className="text-[10px] font-bold uppercase tracking-widest mb-3">{detail.title}</h4>
-                      <p className="text-xs text-neutral-500 leading-relaxed font-light">{detail.text}</p>
+                      <p className="text-xs text-neutral-500 leading-relaxed font-light whitespace-pre-line">{detail.text}</p>
                     </div>
                   ))}
                 </div>
@@ -109,8 +121,8 @@ export default function ProcessContent({ data }: { data: ProcessPageData }) {
               className={`${idx % 2 === 0 ? 'order-1 lg:order-2' : ''} aspect-[4/5] relative grayscale overflow-hidden group`}
             >
               <Image
-                src={section.image?.url || section.image}
-                alt={section.title}
+                src={section.image || "/assets/images/process_materiality_v2.png"}
+                alt={section.title || "Process image"}
                 fill
                 className="object-cover transition-transform duration-[2s] group-hover:scale-105 will-change-transform"
                 referrerPolicy="no-referrer"

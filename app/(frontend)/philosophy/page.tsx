@@ -4,6 +4,8 @@ import { GET_PHILOSOPHY_PAGE_DATA } from '@/lib/queries';
 import PhilosophyContent from './PhilosophyContent';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export default async function PhilosophyPage() {
   const { philosophyPages } = await hygraph.request<{ philosophyPages: any[] }>(GET_PHILOSOPHY_PAGE_DATA);
   const data = philosophyPages[0];

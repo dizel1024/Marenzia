@@ -10,12 +10,18 @@ interface PhilosophyPageData {
   heroSubtitle: string;
   philosophyTitle: string;
   philosophyText: { html: string };
-  heritageItems: any;
+  heritageYear1: string; heritageTitle1: string; heritageImage1: { url: string };
+  heritageYear2: string; heritageTitle2: string; heritageImage2: { url: string };
+  heritageYear3: string; heritageTitle3: string; heritageImage3: { url: string };
+  heritageYear4: string; heritageTitle4: string; heritageImage4: { url: string };
   atelierTitle: string;
   atelierText: { html: string };
   atelierMainImage: { url: string };
   atelierSecondaryImage: { url: string };
-  values: any;
+  valuesTitle1: string; valuesDesc1: string;
+  valuesTitle2: string; valuesDesc2: string;
+  valuesTitle3: string; valuesDesc3: string;
+  valuesTitle4: string; valuesDesc4: string;
 }
 
 export default function PhilosophyContent({ data }: { data: PhilosophyPageData }) {
@@ -104,7 +110,12 @@ export default function PhilosophyContent({ data }: { data: PhilosophyPageData }
           </div>
 
           <div className="flex overflow-x-auto no-scrollbar gap-8 px-6 lg:px-20 pb-10 scroll-smooth">
-            {data.heritageItems?.map((item: any, idx: number) => (
+            {[
+              { year: data.heritageYear1, title: data.heritageTitle1, img: data.heritageImage1?.url },
+              { year: data.heritageYear2, title: data.heritageTitle2, img: data.heritageImage2?.url },
+              { year: data.heritageYear3, title: data.heritageTitle3, img: data.heritageImage3?.url },
+              { year: data.heritageYear4, title: data.heritageTitle4, img: data.heritageImage4?.url }
+            ].filter(i => i.title).map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, x: 50 }}
@@ -115,8 +126,8 @@ export default function PhilosophyContent({ data }: { data: PhilosophyPageData }
               >
                 <div className="aspect-[4/5] relative overflow-hidden bg-zinc-900">
                   <Image
-                    src={item.image?.url || item.img}
-                    alt={item.title}
+                    src={item.img || "/assets/images/img_bca9da9a0090.webp"}
+                    alt={item.title || "Heritage item"}
                     fill
                     className="object-cover grayscale brightness-75 group-hover:brightness-100 transition-all duration-700"
                     referrerPolicy="no-referrer"
@@ -191,7 +202,12 @@ export default function PhilosophyContent({ data }: { data: PhilosophyPageData }
         <section className="bg-[#080c0d] py-40 border-t border-white/5">
           <div className="px-6 lg:px-20 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-white/10">
-              {data.values?.map((value: any, i: number) => (
+              {[
+                { title: data.valuesTitle1, desc: data.valuesDesc1 },
+                { title: data.valuesTitle2, desc: data.valuesDesc2 },
+                { title: data.valuesTitle3, desc: data.valuesDesc3 },
+                { title: data.valuesTitle4, desc: data.valuesDesc4 }
+              ].filter(v => v.title).map((value, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
@@ -201,8 +217,8 @@ export default function PhilosophyContent({ data }: { data: PhilosophyPageData }
                   className="py-12 md:py-0 md:px-12 text-center md:text-right"
                 >
                   <h4 className="font-serif text-2xl text-slate-100 mb-6 tracking-wide">{value.title}</h4>
-                  <p className="text-slate-500 text-sm font-light leading-relaxed tracking-wide">
-                    {value.description || value.desc}
+                  <p className="text-slate-500 text-sm font-light leading-relaxed tracking-wide whitespace-pre-line">
+                    {value.desc}
                   </p>
                 </motion.div>
               ))}
