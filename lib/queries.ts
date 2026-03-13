@@ -249,6 +249,26 @@ export const GET_MATERIALS_PAGE_DATA = gql`
   }
 `;
 
+export const GET_COMMERCIAL_PAGE_DATA = gql`
+  query GetCommercialPageData {
+    commercialPages(first: 1) {
+      heroImage { url }
+      heroTitle
+      heroSubtitle
+      introTitle
+      introText
+      service1Title
+      service1Text
+      service2Title
+      service2Text
+      service3Title
+      service3Text
+      formTitle
+      formSubtitle
+    }
+  }
+`;
+
 export const GET_PROJECTS = gql`
   query GetProjects {
     projects {

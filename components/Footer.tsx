@@ -39,7 +39,7 @@ export default function Footer() {
                         <ul className="space-y-4 text-sm">
                             <li><a className="hover:text-white transition-colors" href="#" suppressHydrationWarning>כללי</a></li>
                             <li><a className="hover:text-white transition-colors" href="#" suppressHydrationWarning>עיתונות ומדיה</a></li>
-                            <li><a className="hover:text-white transition-colors" href="#" suppressHydrationWarning>חשבון מסחרי</a></li>
+                            <li><a className="hover:text-white transition-colors" href="/commercial" suppressHydrationWarning>חשבון מסחרי</a></li>
                         </ul>
                     </div>
 
