@@ -46,7 +46,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <h6 className="text-white text-[10px] uppercase tracking-[0.3em] font-bold">סטודיו</h6>
                         <ul className="space-y-4 text-sm">
-                            <li><a className="hover:text-white transition-colors" href="#" suppressHydrationWarning>הסיפור שלנו</a></li>
+                            <li><a className="hover:text-white transition-colors" href="/about" suppressHydrationWarning>הסיפור שלנו</a></li>
                             <li><a className="hover:text-white transition-colors" href="#" suppressHydrationWarning>חומריות</a></li>
                             <li><Link className="hover:text-white transition-colors" href="/process" suppressHydrationWarning>תהליך</Link></li>
                         </ul>
