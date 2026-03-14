@@ -37,8 +37,8 @@ export default function Navbar() {
     { name: 'אמבט', href: '/bath', dropdownId: 'bath' },
     { name: 'דקור', href: '/decor', dropdownId: 'decor' },
     { name: 'פרויקטים', href: '/projects' },
+    { name: 'בחרנו בנו', href: '/chose-us' },
     { name: 'צור קשר', href: '/contact' },
-    { name: 'פילוסופיה', href: '/philosophy' },
   ];
 
   return (
