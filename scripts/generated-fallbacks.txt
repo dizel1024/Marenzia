@@ -1,0 +1,32 @@
+export const LOCAL_COLORFUL_FALLBACKS: Record<string, string[]> = {
+  "nouveau-penthouse": [
+    "/assets/images/projects/nouveau-penthouse-1.jpg",
+    "/assets/images/projects/nouveau-penthouse-2.jpg",
+    "/assets/images/projects/nouveau-penthouse-3.jpg"
+  ],
+  "azure-coastal-villa": [
+    "/assets/images/projects/azure-coastal-villa-1.jpg",
+    "/assets/images/projects/azure-coastal-villa-2.jpg",
+    "/assets/images/projects/azure-coastal-villa-3.jpg"
+  ],
+  "the-monolith-hotel": [
+    "/assets/images/projects/the-monolith-hotel-1.jpg",
+    "/assets/images/projects/the-monolith-hotel-2.jpg",
+    "/assets/images/projects/the-monolith-hotel-3.jpg"
+  ],
+  "carrara-showroom": [
+    "/assets/images/projects/carrara-showroom-1.jpg",
+    "/assets/images/projects/carrara-showroom-2.jpg",
+    "/assets/images/projects/carrara-showroom-3.jpg"
+  ],
+  "desert-retreat": [
+    "/assets/images/projects/desert-retreat-1.jpg",
+    "/assets/images/projects/desert-retreat-2.jpg",
+    "/assets/images/projects/desert-retreat-3.jpg"
+  ],
+  "highline-residence": [
+    "/assets/images/projects/highline-residence-1.jpg",
+    "/assets/images/projects/highline-residence-2.jpg",
+    "/assets/images/projects/highline-residence-3.jpg"
+  ]
+};
