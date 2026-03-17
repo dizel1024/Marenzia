@@ -136,7 +136,7 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
         <section className="relative h-[90vh] w-full flex items-center justify-center overflow-hidden pt-20">
           <div className="absolute inset-0 z-0">
             <div 
-              className="w-full h-full bg-center bg-no-repeat bg-cover grayscale transition-all duration-1000" 
+              className="w-full h-full bg-center bg-no-repeat bg-cover transition-all duration-1000" 
               style={{ backgroundImage: `url("${images[0] || '/assets/images/placeholder.png'}")` }}
             ></div>
             <div className="absolute inset-0 bg-black/50"></div>
@@ -184,7 +184,7 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
                   className={`${i === 2 ? 'col-span-12 aspect-[16/9] mt-8' : 'col-span-6 aspect-[3/4] ' + (i === 1 ? '-mt-12' : 'mt-12')} bg-zinc-200 overflow-hidden relative group cursor-pointer`} 
                   onClick={() => setEnlargedImageIndex(i)}
                 >
-                  <Image alt={`${product.title} detail ${i+1}`} width={i === 2 ? 1200 : 600} height={i === 2 ? 675 : 800} className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src={img} />
+                  <Image alt={`${product.title} detail ${i+1}`} width={i === 2 ? 1200 : 600} height={i === 2 ? 675 : 800} className="h-full w-full object-cover transition-all duration-700" src={img} />
                   {i === 2 && images.length > 3 && (
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-colors group-hover:bg-black/60">
                       <span className="text-white text-4xl font-serif italic">+ {images.length - 3}</span>
@@ -262,7 +262,7 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
                   href={`/projects/${project.slug}`}
                   className={`grid grid-cols-1 lg:grid-cols-12 gap-0 items-center group cursor-pointer ${i % 2 === 0 ? '' : 'text-right'}`}
                 >
-                  <div className={`lg:col-span-8 aspect-[16/10] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 ${i % 2 === 0 ? '' : 'lg:order-2'}`}>
+                  <div className={`lg:col-span-8 aspect-[16/10] overflow-hidden transition-all duration-1000 ${i % 2 === 0 ? '' : 'lg:order-2'}`}>
                     <Image alt={project.title} width={1200} height={800} className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2000ms]" src={project.mainImage?.url || '/assets/images/placeholder.png'} />
                   </div>
                   <div className={`lg:col-span-4 px-12 py-12 lg:py-0 ${i % 2 === 0 ? '' : 'lg:order-1'}`}>
@@ -288,7 +288,7 @@ export default function ProductDetailContent({ product, categorySlug }: { produc
                   {product.productCollection.collectionProducts.map(item => (
                     <Link key={item.id} href={`/${categorySlug}/${item.slug}`} className="group block text-right">
                        <div className="aspect-[4/5] overflow-hidden bg-white relative mb-8">
-                          <Image src={item.mainImage?.url || '/assets/images/placeholder.png'} alt={item.title} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                          <Image src={item.mainImage?.url || '/assets/images/placeholder.png'} alt={item.title} fill className="object-cover transition-all duration-700" />
                        </div>
                        <h3 className="font-serif text-2xl italic mb-2">{item.title}</h3>
                        <span className="text-[9px] font-bold tracking-widest uppercase text-black/40">צפה בפרטים</span>
